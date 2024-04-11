@@ -11,12 +11,16 @@ public class Bead : MonoBehaviour
     public Shaft owner;
     bool selected;
     Vector2 slotPos;//算珠目前停靠的位置
+    public Vector2 otherSlotPos;//算珠另一个停靠的位置
 
-    public bool isDown = true;//在下面是true
+    public bool isDown;//在下面是true
 
     public void Start()
     {
         slotPos = transform.position;
+
+        float distanceY = isDown ? owner.maxMoveDistance : -owner.maxMoveDistance;
+        otherSlotPos = slotPos + new Vector2(0, distanceY);
     }
 
     public void OnMouseOver()//跟随鼠标
@@ -57,10 +61,12 @@ public class Bead : MonoBehaviour
         }
     }
 
-    public void ChangeSlot(float maxDistance)
+    public void ChangeSlot()
     {
         this.isDown = !isDown;//若之前算珠在下，现在isdown应该是false =》 此次位移是往上
-        slotPos += new Vector2(0, isDown ? -maxDistance : maxDistance);//当isDown为true，说明此次位移是往下
+        Vector2 temp = slotPos;
+        slotPos = otherSlotPos;//当isDown为true，说明此次位移是往下
+        otherSlotPos = temp;
     }
 
     public void MoveToSlot()

@@ -6,15 +6,17 @@ using static System.Math;
 
 public class Shaft : MonoBehaviour//算盘的某一根轴
 {
-    int weight;
+    public SuanPan owner;
+    public int weight;
     public List<Bead> beads;
-    public Vector2 preMousePos;
-    
+
+    public Vector2 preMousePos;    
     Vector2 originMousePos;
     public List<Bead> movingBeads = new List<Bead>();
+
     public static float moveThreshold = 0.3f;
-    public  float maxMoveDistance = 1.4f;
-    
+    public  float maxMoveDistance;
+
     public void Move(int index, Vector2 newMousePos)
     {
         float deltaY = newMousePos.y - preMousePos.y;
@@ -70,7 +72,7 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
             Vector2 nextPos = bead.transform.position + new Vector3(0, deltaY, 0);
             if (toMax)
             {
-                bead.MoveToSlot();
+                bead.MoveTo(bead.otherSlotPos);
             }
             else
             {
@@ -91,19 +93,23 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
     public void Judge(int index, Vector2 endPos)
     {
         float deltaY = endPos.y - originMousePos.y;
-        Debug.Log(deltaY);
+
         
-        if (deltaY < moveThreshold && deltaY > -moveThreshold)//不移动
+
+        if ((beads[index].isDown && deltaY > moveThreshold) || (!beads[index].isDown && deltaY < -moveThreshold))
         {
-            ResetPos();
+            bool movingUp = beads[index].isDown;//移动有效，这次会是哪种移动
+            foreach (var bead in movingBeads)
+            {
+                bead.ChangeSlot();
+                bead.MoveToSlot();
+            }
+
+            owner.Add(movingBeads.Count * (movingUp ? weight : -weight));
         }
         else
         {
-            foreach(var bead in movingBeads)
-            {
-                bead.ChangeSlot(this.maxMoveDistance);
-                bead.MoveToSlot();
-            }
+            ResetPos();
         }
 
         movingBeads.Clear();
