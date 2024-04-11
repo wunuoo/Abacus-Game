@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 2921421933720122124}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.57, z: 0}
+  m_LocalPosition: {x: 0, y: -0.66499996, z: 0}
   m_LocalScale: {x: 0.5, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -185,7 +185,7 @@ MonoBehaviour:
   index: 1
   owner: {fileID: 7585552222238841230}
   otherSlotPos: {x: 0, y: 0}
-  isDown: 1
+  isDown: 0
 --- !u!61 &60272821200841880
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 8153129505220790673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1750001, z: 0}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
   m_LocalScale: {x: 0.5, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -332,7 +332,7 @@ MonoBehaviour:
   index: 0
   owner: {fileID: 7585552222238841230}
   otherSlotPos: {x: 0, y: 0}
-  isDown: 1
+  isDown: 0
 --- !u!61 &4137939345373215570
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -430,6 +430,7 @@ MonoBehaviour:
   beads:
   - {fileID: 3127063478809091967}
   - {fileID: 2524453891983759405}
+  isShort: 1
   preMousePos: {x: 0, y: 0}
   movingBeads: []
   maxMoveDistance: 0.8
