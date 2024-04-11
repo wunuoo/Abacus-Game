@@ -9,6 +9,7 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
     public SuanPan owner;
     public int weight;
     public List<Bead> beads;
+    public bool isShort;//短轴初始位置是在上的
 
     public Vector2 preMousePos;    
     Vector2 originMousePos;
@@ -98,14 +99,14 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
 
         if ((beads[index].isDown && deltaY > moveThreshold) || (!beads[index].isDown && deltaY < -moveThreshold))
         {
-            bool movingUp = beads[index].isDown;//移动有效，这次会是哪种移动
+            bool active = isShort ? !beads[index].isDown : beads[index].isDown;//移动有效，这次会是哪种移动
             foreach (var bead in movingBeads)
             {
                 bead.ChangeSlot();
                 bead.MoveToSlot();
             }
 
-            owner.Add(movingBeads.Count * (movingUp ? weight : -weight));
+            owner.Add(movingBeads.Count * (active ? weight : -weight));
         }
         else
         {
