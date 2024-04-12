@@ -1,27 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class UISetting : MonoBehaviour
+public class UIMain : MonoBehaviour
 {
+    public void TestDialog()
+    {
+        DialogManager.Instance.PlayDialog(0);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-
-
-    public void Hide()
-    {
-        UIManager.Instance.Hide(GetType());
     }
 }

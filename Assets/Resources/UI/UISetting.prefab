@@ -541,7 +541,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4022149739913074996}
         m_TargetAssemblyTypeName: UISetting, Assembly-CSharp
-        m_MethodName: HideSetting
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

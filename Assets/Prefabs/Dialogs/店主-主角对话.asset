@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac1a35635d1f88448d61429181f24d3, type: 3}
+  m_Name: "\u5E97\u4E3B-\u4E3B\u89D2\u5BF9\u8BDD"
+  m_EditorClassIdentifier: 
+  dialogNodes:
+  - name: "\u5E97\u4E3B"
+    portrait: {fileID: 21300000, guid: 8b6e5d53d3fa62146a5a621b253d1e52, type: 3}
+    content: "\u4F60\u597D\uFF0C\u6B22\u8FCE\u6765\u5230\u5341\u5B57\u5761\u9ED1\u5E97"
+  - name: "\u4E3B\u89D2"
+    portrait: {fileID: 21300000, guid: 6ce317f852aa1f7499075eb42f687383, type: 3}
+    content: "\u6765\u4E8C\u65A4\u4EBA\u8089\u5305\u5B50\uFF0C\u5012\u7ED9\u621150\u5757\u94B1"
+  - name: "\u5E97\u4E3B"
+    portrait: {fileID: 21300000, guid: 8b6e5d53d3fa62146a5a621b253d1e52, type: 3}
+    content: "\u597D\u561E\uFF0C\u8FD9\u5C31\u6765"
+  - name: "\u5458\u5DE5"
+    portrait: {fileID: 21300000, guid: 3b2760b22c6dbdb4f98d7885a4831678, type: 3}
+    content: "\u4F60\u8981\u7684\u4EBA\u8089\u5305\u5B50\uFF0C\u548C50\u5757\u94B1"

@@ -1,36 +1,58 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoSingleton<UIManager>
+public class UIManager : Singleton<UIManager>
 {
-    public GameObject prefabToSpawn; // 实例化的预制体
-    public static GameObject prefab;
+    
+    
+
+    public Dictionary<Type, GameObject> uiInstances = new Dictionary<Type, GameObject>();
+
+    //public Dictionary<Type, string> uiNames = new Dictionary<Type, string>();
 
     // Start is called before the first frame update
-    void Start()
+    public UIManager()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject Show<T>(string fileName)
     {
-        
-    }
-
-    public void ShowSetting()
-    {
-        
-        if (prefabToSpawn == null)
+        GameObject go;
+        if (uiInstances.TryGetValue(typeof(T), out go)) //说明UI实例存在
         {
-            prefabToSpawn = Resources.Load<GameObject>("UI/UISetting"); // 加载预制体资源
-            prefab = Instantiate(prefabToSpawn, transform.position, Quaternion.identity); // 在当前位置实例化预制体
+            Debug.Log("find prefabToHide");
+            go.SetActive(true); // 隐藏实例化的预制体
         }
         else
         {
-            prefab.SetActive(true); // 显示实例化的预制体
+            go = GameObject.Instantiate(Resources.Load<GameObject>("UI/" + fileName)); // 在当前位置实例化预制体
+            if (go != null)
+            {
+                uiInstances.Add(typeof(T), go);
+            }
+            else Debug.LogError("找不到文件：" + "UI/" + fileName);
         }
+
+        return go;
     }
+
+    public void Hide(Type type)
+    {
+        GameObject go;
+        if(uiInstances.TryGetValue(type, out go)) //说明UI实例存在
+        {
+            Debug.Log("find prefabToHide");
+            go.SetActive(false); // 隐藏实例化的预制体
+        }
+        else
+        {
+            Debug.Log("can't find prefabToHide");
+        }
+ 
+    }
+
 
 }
