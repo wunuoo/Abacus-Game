@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bd239c9875de487478bba9277e29263e
+guid: abc95e9d489b3e046a0164ddd555f276
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - WenYue GuDianMingChaoTi JRFC
+  - WenYue GuDianMingChaoTi (Authorization Required)
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
