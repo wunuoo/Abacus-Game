@@ -54,5 +54,13 @@ public class UIManager : Singleton<UIManager>
  
     }
 
+    internal void DeleteInstance<T>()//当ui关闭的时候应该注销
+    {
+        GameObject ui;
+        if(uiInstances.TryGetValue(typeof(T), out ui))
+        {
+            uiInstances.Remove(typeof(T));
+        }
 
+    }
 }

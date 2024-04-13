@@ -42,4 +42,9 @@ public class UIDialog : MonoBehaviour
             Play(dialog.dialogNodes[index]);
         }
     }
+
+    public void OnDestroy()
+    {
+        UIManager.Instance.DeleteInstance<UIDialog>();
+    }
 }
