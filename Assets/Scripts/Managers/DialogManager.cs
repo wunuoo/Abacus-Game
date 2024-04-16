@@ -7,14 +7,16 @@ using UnityEngine;
 public class DialogNode
 {
     [Header("说话者")]
-    public string name;
+    public string name;//这个是给人看的，代码直接读取ID
+    [Header("说话者ID")]
+    public int ID;
     [Header("肖像")]
-    public Sprite portrait;
+    public Sprite portrait;//这个是给人看的，代码直接读取ID，也提供了手动微调的空间
     [TextArea, Header("说话内容")]
     public string content;
-
-
 }
+
+
 
 public class DialogManager : MonoSingleton<DialogManager>
 {

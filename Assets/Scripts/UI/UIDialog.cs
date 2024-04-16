@@ -19,7 +19,7 @@ public class UIDialog : MonoBehaviour
     {
         this.index = 0;
         this.dialog = dialog;
-        this.length = dialog.dialogNodes.Length;
+        this.length = dialog.dialogNodes.Count;
         Play(dialog.dialogNodes[index]);
     }
 

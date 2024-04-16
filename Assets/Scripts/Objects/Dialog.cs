@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "创建对话", fileName = "对话")]
 public class Dialog : ScriptableObject
 {
-    public DialogNode[] dialogNodes;
+    public List<DialogNode> dialogNodes = new List<DialogNode>();
 }
