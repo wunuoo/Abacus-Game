@@ -9,9 +9,10 @@ public class UITaskProcess : MonoBehaviour
     public GameObject pointerPrefab;
     public Slider taskProcessSlider;
 
+    bool taskHaveSet;
+
     List<UITaskPointer> pointers = new List<UITaskPointer>();
 
-    float leftBound;
     float width;
 
     bool hintShowed;
@@ -19,35 +20,34 @@ public class UITaskProcess : MonoBehaviour
     void Start()
     {
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
-        Vector3[] corners = new Vector3[4];
-        rectTransform.GetWorldCorners(corners);
-
         //宽度
         width = rectTransform.sizeDelta.x;
-        // 左边界坐标
-        leftBound = corners[0].x;
-
-        // 右边界坐标
-        //float right = corners[2].x;
+        Refresh();
 
         TaskManager.Instance.NewTaskSet += this.OnNewTask;
-        TaskManager.Instance.TaskPartFinished += this.OnTaskPartFinished;
+        TaskManager.Instance.TaskStatusChange.AddListener(this.Refresh);
+    }
+
+    public void Refresh()
+    {
+        if (!taskHaveSet)
+        {
+            SetTask(TaskManager.Instance.currentTask, hintShowed);
+            taskHaveSet = true;
+        }
+
+        taskProcessSlider.value = TaskManager.Instance.resultIndex;
     }
 
     private void OnDestroy()
     {
         TaskManager.Instance.NewTaskSet -= this.OnNewTask;
-        TaskManager.Instance.TaskPartFinished -= this.OnTaskPartFinished;
-    }
-
-    private void OnTaskPartFinished(object sender, EventArgs e)
-    {
-        taskProcessSlider.value++;
+        TaskManager.Instance.TaskStatusChange.RemoveListener(this.Refresh);
     }
 
     private void OnNewTask(object sender, Task task)
     {
-        SetTask(task, hintShowed);
+        Refresh();
     }
 
     public void SetTask(Task task, bool useHint)//为UI设置打算盘任务的消息

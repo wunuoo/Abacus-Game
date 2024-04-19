@@ -36,6 +36,7 @@ public class UIDialog : MonoBehaviour
         if(index == length)//说明已经是在最后一句对话中点击下一句了
         {
             gameObject.SetActive(false);
+            DialogManager.Instance.OnDialogFinish();
         }
         else
         {

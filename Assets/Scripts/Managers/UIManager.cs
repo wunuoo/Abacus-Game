@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    
-    
+
+    public Dictionary<Type, string> uiNames = new Dictionary<Type, string>();
 
     public Dictionary<Type, GameObject> uiInstances = new Dictionary<Type, GameObject>();
 
@@ -15,28 +15,30 @@ public class UIManager : Singleton<UIManager>
     // Start is called before the first frame update
     public UIManager()
     {
-
+        uiNames.Add(typeof(UIDialog), "UIDialog");
+        uiNames.Add(typeof(UISetting), "UISetting");
     }
 
-    public GameObject Show<T>(string fileName)
+    public T Show<T>()
     {
         GameObject go;
         if (uiInstances.TryGetValue(typeof(T), out go)) //说明UI实例存在
         {
-            Debug.Log("find prefabToHide");
-            go.SetActive(true); // 隐藏实例化的预制体
+            Debug.Log("find prefabHidden");
+            go.SetActive(true); // 显示已经实例化但被隐藏的预制体
         }
         else
         {
-            go = GameObject.Instantiate(Resources.Load<GameObject>("UI/" + fileName)); // 在当前位置实例化预制体
+            string name = "UI/" + uiNames[typeof(T)];
+            go = GameObject.Instantiate(Resources.Load<GameObject>(name)); // 在当前位置实例化预制体
             if (go != null)
             {
                 uiInstances.Add(typeof(T), go);
             }
-            else Debug.LogError("找不到文件：" + "UI/" + fileName);
+            else Debug.LogError("找不到文件：" + name);
         }
 
-        return go;
+        return go.GetComponent<T>();
     }
 
     public void Hide(Type type)

@@ -7,6 +7,6 @@ public class Task : ScriptableObject
 {
     public int taskID;
     public int[] results;//中间结果
-    public int nowIndex = 0;//目前所处的中间结果序号
 
+    public int eventIndex = 2;//一般情况下触发2号事件：发生对话
 }

@@ -22,6 +22,6 @@ public class GameStartManager : MonoBehaviour
 
     public void OnClickSetting()
     {
-        UIManager.Instance.Show<UISetting>("UISetting");
+        UIManager.Instance.Show<UISetting>();
     }
 }

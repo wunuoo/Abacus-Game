@@ -15,3 +15,4 @@ MonoBehaviour:
   taskID: 0
   results: 080000000e00000015000000
   nowIndex: 0
+  eventIndex: 2

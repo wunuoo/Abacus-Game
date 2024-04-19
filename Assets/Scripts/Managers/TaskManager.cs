@@ -2,53 +2,52 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public enum TaskProceedType
+{
+    PartFinish,
+    Finish,
+
+}
 
 
-
-
-//这个Manager掌控了游戏的剧情进度，相关属性
-public class TaskManager : MonoSingleton<TaskManager>
+public class TaskManager : Singleton<TaskManager>
 {
     public event EventHandler<Task> NewTaskSet;
-    public event EventHandler TaskPartFinished;
+    public UnityEvent TaskStatusChange = new UnityEvent();
 
-    public Task[] tasks;
-    int taskIndex;//当前所处的任务序号，标志了剧情的进度
+    public Task currentTask;
+    public int resultIndex;
 
-    Task currentTask;
-
+    //每当算珠拨动，就会触发一次这个函数
     internal void CheckResult(int value)
     {
-        int index = currentTask.nowIndex;
-        if (value == currentTask.results[index])
+        if (value == currentTask.results[resultIndex])
         {
-            index++;
-            if(index == currentTask.results.Length)//这说明任务做完了
+            resultIndex++;
+            if(resultIndex == currentTask.results.Length)//这说明任务做完了
             {
                 this.TaskFinish();
             }
-            TaskPartFinished?.Invoke(this, EventArgs.Empty);
-            currentTask.nowIndex = index;
+            TaskStatusChange?.Invoke();
         }
     }
 
     private void TaskFinish()
     {
-        Debug.Log("任务完成");
+        resultIndex = 0;
+        TaskStatusChange?.Invoke();
+        //Debug.Log("任务完成");
+        EventManager.Instance.TriggerEvent(currentTask.eventIndex);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartNewTask(Task task)
     {
         
-    }
-
-
-    public void StartNewTask(int taskID)
-    {
-        taskIndex = taskID;
-        this.currentTask = tasks[taskID];
+        this.currentTask = task;
 
         NewTaskSet?.Invoke(this, currentTask);
+
     }
 }
