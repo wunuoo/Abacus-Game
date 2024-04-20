@@ -6,7 +6,7 @@ public class SuanPanPic : ClickablePic
 {
     public override void OnClick()
     {
-        SceneManager.Instance.LoadScene("SuanPan");
+        //SceneManager.Instance.LoadScene("SuanPan");
     }
 
 }

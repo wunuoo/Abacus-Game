@@ -35,7 +35,8 @@ public class ChapterManager : MonoSingleton<ChapterManager>
 
     public void StartNewChapter()
     {
-        StartChapter(chapterIndex);
+        if(canGoNextChapter)
+            StartChapter(chapterIndex);
     }
 
     internal void AssignNewDialog()

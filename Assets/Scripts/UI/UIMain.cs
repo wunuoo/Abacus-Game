@@ -3,28 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMain : MonoBehaviour
+public class UIMain : MonoSingleton<UIMain>
 {
     public Button button_NextChapter;
+    public Button button_SuanPan;
+    public Button button_Back;
 
-    void Refresh()
-    {
-        button_NextChapter.gameObject.SetActive(ChapterManager.Instance.canGoNextChapter);
-    }
-
-
-    public void OnClickNextChapter()
-    {
-        ChapterManager.Instance.StartNewChapter();
-    }
-
-    public void TestDialog()
-    {
-        //DialogManager.Instance.PlayDialog(0);
-    }
+    bool suanPanMode;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void OnStart()
     {
         EventManager.Instance.OnChapterFinish += this.Refresh;
         Refresh();
@@ -35,9 +23,31 @@ public class UIMain : MonoBehaviour
         EventManager.Instance.OnChapterFinish -= this.Refresh;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Refresh()
     {
-        
+        button_NextChapter.gameObject.SetActive(ChapterManager.Instance.canGoNextChapter);
+        this.button_SuanPan.gameObject.SetActive(!suanPanMode);
+        this.button_Back.gameObject.SetActive(suanPanMode);
     }
+
+    public void OnClickNextChapter()
+    {
+        ChapterManager.Instance.StartNewChapter();
+    }
+
+    public void OnClickSuanPan()
+    {
+        SceneManager.Instance.LoadScene("SuanPan");
+        suanPanMode = true;
+        Refresh();
+    }
+
+    public void OnClickBack()
+    {
+        SceneManager.Instance.LoadScene("Main");
+        suanPanMode = false;
+        Refresh();
+    }
+
+
 }
