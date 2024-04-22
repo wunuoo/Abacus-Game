@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class UITools : MonoBehaviour
 {
+    public GameObject bagPanel;
     public GameObject descriptionPanel;
     public TextMeshProUGUI toolName;
     public TextMeshProUGUI toolDescription;
@@ -32,6 +33,11 @@ public class UITools : MonoBehaviour
     {
         ShowDescription(index);
 
+    }
+
+    public void HideBag()
+    {
+        
     }
 
 }
