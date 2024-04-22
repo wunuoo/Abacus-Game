@@ -49,5 +49,15 @@ public class UIMain : MonoSingleton<UIMain>
         Refresh();
     }
 
+    public void OnClickTools()
+    {
+        UIManager.Instance.Show<UITools>();
 
+
+    }
+
+    public void OnClickPause()
+    {
+        UIManager.Instance.Show<UIPauseGame>();
+    }
 }

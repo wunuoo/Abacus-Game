@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UIDialog : MonoBehaviour
+public class UIDialog : UIBase
 {
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI content;
@@ -35,7 +35,8 @@ public class UIDialog : MonoBehaviour
         index++;
         if(index == length)//说明已经是在最后一句对话中点击下一句了
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            this.OnClose();
             DialogManager.Instance.OnDialogFinish();
         }
         else
@@ -46,6 +47,6 @@ public class UIDialog : MonoBehaviour
 
     public void OnDestroy()
     {
-        UIManager.Instance.DeleteInstance<UIDialog>();
+        //UIManager.Instance.DeleteInstance(this.gameObject);
     }
 }

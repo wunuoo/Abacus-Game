@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UITools : MonoBehaviour
+public class UITools : UIBase
 {
     public GameObject descriptionPanel;
     public TextMeshProUGUI toolName;
@@ -33,5 +33,6 @@ public class UITools : MonoBehaviour
         ShowDescription(index);
 
     }
+
 
 }

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UISetting : MonoBehaviour
+public class UISetting : UIBase
 {
 
     public Slider musicVolume;
@@ -31,13 +31,4 @@ public class UISetting : MonoBehaviour
         SoundManager.Instance.OnChangeVolume(SoundType.Sound, newValue);        
     }
 
-    public void Hide()
-    {
-        UIManager.Instance.Hide(GetType());
-    }
-
-    public void OnDestroy()
-    {
-        UIManager.Instance.DeleteInstance<UISetting>();
-    }
 }
