@@ -18,7 +18,7 @@ MonoBehaviour:
     portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - ID: 1
     name: "\u9646\u8317"
-    portrait: {fileID: 21300000, guid: 6ce317f852aa1f7499075eb42f687383, type: 3}
+    portrait: {fileID: 21300000, guid: c9644680367989e418fad5f1a9c75766, type: 3}
   - ID: 2
     name: "\u80E1\u795A\u4EC1"
-    portrait: {fileID: 21300000, guid: 8b6e5d53d3fa62146a5a621b253d1e52, type: 3}
+    portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}

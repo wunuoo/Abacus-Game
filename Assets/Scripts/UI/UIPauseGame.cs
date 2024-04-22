@@ -6,6 +6,7 @@ public class UIPauseGame : UIBase
 {
     public void OnClickBackToTitle()
     {
+        Destroy(UIMain.Instance.gameObject);
         SceneManager.Instance.LoadScene("Title");
     }
 

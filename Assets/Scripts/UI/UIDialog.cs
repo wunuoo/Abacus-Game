@@ -9,7 +9,11 @@ public class UIDialog : UIBase
 {
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI content;
-    public Image portrait;
+    //public Image portrait;
+
+    public Image[] portraits;
+    int img_replacing_index;
+    NPC lastSpeaker;
 
     int index;
     int length;
@@ -23,11 +27,38 @@ public class UIDialog : UIBase
         Play(dialog.dialogNodes[index]);
     }
 
+    void HightLight(Image img)
+    {
+        img.color = Color.white;
+    }
+
+    void LowLight(Image img)
+    {
+        img.color = Color.gray;
+        
+    }
+
+
+    void Replace(Sprite pic)
+    {
+        portraits[img_replacing_index].sprite = pic;
+    }
+
     void Play(DialogNode node)
     {
-        characterName.text = node.name.ToString();
-        content.text = node.content.ToString();
-        portrait.sprite = node.portrait;
+        if(lastSpeaker == null || node.name != lastSpeaker.name)//说话者改变
+        {
+            lastSpeaker = GameConfig.nameToNPC_Map[node.name];
+            characterName.text = node.name;
+
+            Replace(lastSpeaker.portrait);
+            HightLight(portraits[img_replacing_index]);
+            portraits[img_replacing_index].gameObject.SetActive(true);
+            img_replacing_index = 1 - img_replacing_index;//说话者改变，那么下次 该 被替换的应该是本次没替换掉的
+            LowLight(portraits[img_replacing_index]);
+        }
+
+        content.text = node.content;
     }
 
     public void OnClickNext()
@@ -45,8 +76,8 @@ public class UIDialog : UIBase
         }
     }
 
-    public void OnDestroy()
-    {
-        //UIManager.Instance.DeleteInstance(this.gameObject);
-    }
+    //public void OnDestroy()
+    //{
+    //    UIManager.Instance.DeleteInstance(this.gameObject);
+    //}
 }

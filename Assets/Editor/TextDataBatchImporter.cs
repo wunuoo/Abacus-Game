@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.IO;
+using System.Text;
 
 public class TextDataBatchImporter : EditorWindow
 {
@@ -39,25 +40,43 @@ public class TextDataBatchImporter : EditorWindow
 
         foreach (string line in textLines)
         {
+            int maoHaoPos = 0;
 
-            string[] group = line.Split('：');
-            group[1].Trim('\r');
-            group[1] = group[1].Substring(2, group[1].Length - 4);//去除前后引号
+            for (int i = line.Length - 1; i >= 0; i--)
+            {
+                if (line[i] == '：') maoHaoPos = i;
+            }
+            string speaker = line.Substring(0, maoHaoPos);
+            string latter = line.Substring(maoHaoPos + 1);
+            char[] temp = new char[latter.Length];
+            int j = 0;
+            for (int i = 0; i < latter.Length; i++)
+            {
+                if (latter[i] != '“' && latter[i] != '”')
+                {
+                    temp[j] = latter[i];
+                    j++;
+                }
+            }
+            string content = string.Join("",temp).Trim(' ');
+
+
+
             NPC npc;
-            if(GameConfig.nameToNPC_Map.TryGetValue(group[0], out npc))
+            if(GameConfig.nameToNPC_Map.TryGetValue(speaker, out npc))
             {
                 DialogNode node = new DialogNode
                 {
                     name = npc.name,
                     ID = npc.ID,
                     portrait = npc.portrait,
-                    content = group[1]
+                    content = content
                 };
                 newDialog.dialogNodes.Add(node);
             }
             else
             {
-                Debug.LogError("NPC不存在：" + group[0]);
+                Debug.LogError("NPC不存在：" + speaker);
                 return;
             }
 
@@ -66,7 +85,7 @@ public class TextDataBatchImporter : EditorWindow
 
 
         // 创建文件
-        string path = AssetDatabase.GenerateUniqueAssetPath("Assets/Prefabs/新对话.asset");
+        string path = AssetDatabase.GenerateUniqueAssetPath("Assets/Prefabs/" + textAsset.name + ".asset");
         AssetDatabase.CreateAsset(newDialog, path);
         AssetDatabase.SaveAssets();
 
