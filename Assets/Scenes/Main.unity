@@ -1643,12 +1643,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd745e2f48510494ea96e7cba3c61678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  global: 0
+  global: 1
   tools:
   - {fileID: 11400000, guid: a229239b531e2e04a8d2c2be2b2180fc, type: 2}
   - {fileID: 11400000, guid: 8041e57c42be563439670203d23dc532, type: 2}
   - {fileID: 11400000, guid: e3e41282e6a489a4f97a3170d7edcfd4, type: 2}
   - {fileID: 11400000, guid: 94a610574b9eac74eb6d0c98dd637012, type: 2}
+  OnToolChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1191674244
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,9 @@ public class ToolInfo : ScriptableObject
     
     [Header("工具图片")]
     public Sprite toolImage;
+
+    [Header("物品ID")]
+    public int toolID;
 }
 
 

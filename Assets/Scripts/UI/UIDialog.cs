@@ -71,10 +71,11 @@ public class UIDialog : UIBase
 
         if (node.toolID != 0)
         {
-            Tool toolDisplay = GameConfig.idToTool_Map[node.toolID];
-            ShowTool(toolDisplay.img);
+            ToolInfo toolDisplay = GameConfig.idToTool_Map[node.toolID];
+            ShowTool(toolDisplay.toolImage);
             toolDisplayBar.gameObject.SetActive(true);
 
+            ToolManager.Instance.GiveTool(node.toolID);
         }
         else
         {

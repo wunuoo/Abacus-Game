@@ -30,15 +30,25 @@ public class UITaskProcess : MonoBehaviour
 
     public void Refresh()
     {
-        if (!taskHaveSet)
+        if (TaskManager.Instance.currentTask != null)
         {
-            if(TaskManager.Instance.currentTask != null)
+            if (!taskHaveSet)
             {
                 SetTask(TaskManager.Instance.currentTask, hintShowed);
                 taskHaveSet = true;
             }
 
         }
+        else
+        {
+            foreach(var pointer in pointers)
+            {
+                Destroy(pointer);
+            }
+            this.pointers.Clear();
+            taskHaveSet = false;
+        }
+
 
         taskProcessSlider.value = TaskManager.Instance.resultIndex;
     }
