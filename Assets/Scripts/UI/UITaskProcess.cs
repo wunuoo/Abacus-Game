@@ -19,7 +19,7 @@ public class UITaskProcess : MonoBehaviour
 
     void Start()
     {
-        RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
+        RectTransform rectTransform = taskProcessSlider.GetComponent<RectTransform>();
         //¿í¶È
         width = rectTransform.sizeDelta.x;
         Refresh();

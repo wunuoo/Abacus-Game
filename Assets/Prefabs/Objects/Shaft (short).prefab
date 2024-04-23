@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6479097345366583175}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.84, y: 1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   isShort: 1
   preMousePos: {x: 0, y: 0}
   movingBeads: []
-  maxMoveDistance: 0.9
+  maxMoveDistance: 0.64
 --- !u!1001 &60366993492260497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +148,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4693000788982770975}
     m_Modifications:
+    - target: {fileID: 71335530795362849, guid: 10b504909801e27489bca6befc582b71, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 71335530795362849, guid: 10b504909801e27489bca6befc582b71, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 6275486651844110566}
+    - target: {fileID: 71335530795362849, guid: 10b504909801e27489bca6befc582b71, type: 3}
+      propertyPath: isDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 444594901515928778, guid: 10b504909801e27489bca6befc582b71, type: 3}
       propertyPath: m_Name
       value: Bead0 (1)
@@ -158,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6046581837581864952, guid: 10b504909801e27489bca6befc582b71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9
+      value: -0.8529998
       objectReference: {fileID: 0}
     - target: {fileID: 6046581837581864952, guid: 10b504909801e27489bca6befc582b71, type: 3}
       propertyPath: m_LocalPosition.z
@@ -221,6 +233,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4693000788982770975}
     m_Modifications:
+    - target: {fileID: 71335530795362849, guid: 10b504909801e27489bca6befc582b71, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 6275486651844110566}
+    - target: {fileID: 71335530795362849, guid: 10b504909801e27489bca6befc582b71, type: 3}
+      propertyPath: isDown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 444594901515928778, guid: 10b504909801e27489bca6befc582b71, type: 3}
       propertyPath: m_Name
       value: Bead0
@@ -231,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6046581837581864952, guid: 10b504909801e27489bca6befc582b71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: -0.353
       objectReference: {fileID: 0}
     - target: {fileID: 6046581837581864952, guid: 10b504909801e27489bca6befc582b71, type: 3}
       propertyPath: m_LocalPosition.z

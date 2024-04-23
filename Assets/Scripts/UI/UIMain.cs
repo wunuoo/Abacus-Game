@@ -60,4 +60,19 @@ public class UIMain : MonoSingleton<UIMain>
     {
         UIManager.Instance.Show<UIPauseGame>();
     }
+
+    public void OnClickRecord()
+    {
+        UIManager.Instance.Show<UIRecord>();
+    }
+
+    public void OnClickCheat()
+    {
+        Task task = TaskManager.Instance.currentTask;
+        if (task != null)
+        {
+            TaskManager.Instance.CheckResult(task.results[TaskManager.Instance.resultIndex]);
+        }
+        
+    }
 }

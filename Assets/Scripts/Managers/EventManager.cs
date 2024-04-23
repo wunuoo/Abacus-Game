@@ -55,6 +55,7 @@ public class EventManager : Singleton<EventManager>
 
     private void ChapterFinish()
     {
+        RecordManager.Instance.GetRecord();
         ChapterManager.Instance.OnChapterFinished();
         this.OnChapterFinish?.Invoke();
     }

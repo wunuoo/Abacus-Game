@@ -113,4 +113,12 @@ public class UIDialog : UIBase
     //{
     //    UIManager.Instance.DeleteInstance(this.gameObject);
     //}
+
+    private void Update()
+    {
+        if (this.gameObject.activeSelf && Input.GetKey(KeyCode.E))
+        {
+            this.OnClickNext();
+        }
+    }
 }
