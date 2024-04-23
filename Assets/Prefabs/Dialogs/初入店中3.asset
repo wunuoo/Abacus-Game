@@ -17,4 +17,5 @@ MonoBehaviour:
     ID: 2
     portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}
     content: "\u9646\u59D1\u5A18\uFF0C\u73B0\u5728\u6B64\u7B97\u76D8\u4E3A\u96F6\uFF0C\u5411\u4E0A\u62E8\u52A8\u6700\u53F3\u6863\u7684\u4E24\u9897\u4E0B\u73E0\u4E0E\u4E00\u9897\u4E0A\u73E0\u4EE5\u793A\u4E03\u3002"
-  dialogEventIndex: 0
+    toolID: 0
+  dialogEventIndex: 1

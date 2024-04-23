@@ -27,3 +27,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 558eca02790ce624db590b4263606597, type: 2}
   tasks:
   - {fileID: 11400000, guid: f15c2000b8193ac4492ae6e5491b3e0d, type: 2}
+  - {fileID: 11400000, guid: 8ba27d80369317b49a583ecd1e9a6e6f, type: 2}
+  - {fileID: 11400000, guid: 93ebb72b504248746967e32e9b8f012f, type: 2}
+  - {fileID: 11400000, guid: cb1934ee40c22544fbe74eb602f65ba9, type: 2}
+  - {fileID: 11400000, guid: 4dc3e058986bfd849b9f1569a14b14a0, type: 2}
+  - {fileID: 11400000, guid: f1801f8623ef70f4b8c8f771048d2c42, type: 2}

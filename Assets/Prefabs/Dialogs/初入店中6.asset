@@ -17,8 +17,10 @@ MonoBehaviour:
     ID: 2
     portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}
     content: "\u5584\u54C9\uFF01\u9646\u59D1\u5A18\uFF0C\u4F60\u65E2\u609F\u5F97\u7B97\u76D8\u8868\u6570\u5B57\u4E4B\u6CD5\uFF0C\u6211\u5C06\u6388\u4E8E\u4F60\u4EE5\u73E0\u7B97\u6F14\u7B97\u52A0\u6CD5\u51CF\u6CD5\u4E4B\u6280\u5DE7\u3002\r"
+    toolID: 0
   - name: "\u9646\u8317"
     ID: 1
     portrait: {fileID: 21300000, guid: c9644680367989e418fad5f1a9c75766, type: 3}
     content: "\u8BF7\u80E1\u638C\u67DC\u8D50\u6559\uFF01"
-  dialogEventIndex: 0
+    toolID: 0
+  dialogEventIndex: 2
