@@ -11,7 +11,7 @@ public static class GameConfig
     //static Dictionary<int, string> IDtoName_Map = new Dictionary<int, string>();
     //static Dictionary<string, int> NametoID_Map = new Dictionary<string, int>();
     public static Dictionary<string, NPC> nameToNPC_Map = new Dictionary<string, NPC>();
-    public static Dictionary<int, Tool> idToTool_Map = new Dictionary<int, Tool>();
+    public static Dictionary<int, ToolInfo> idToTool_Map = new Dictionary<int, ToolInfo>();
 
     static GameConfig()
     {
@@ -24,7 +24,7 @@ public static class GameConfig
         ToolTable toolTable = AssetDatabase.LoadAssetAtPath<ToolTable>(GameConfig.ToolFilePath);//读取道具配置表
         foreach (var tool in toolTable.tools)
         {
-            idToTool_Map.Add(tool.ID, tool);
+            idToTool_Map.Add(tool.toolID, tool);
         }
     }
 }

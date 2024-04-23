@@ -935,6 +935,11 @@ MonoBehaviour:
   toolName: {fileID: 8649300066350988388}
   toolDescription: {fileID: 5304174632018234530}
   toolImage: {fileID: 1483470387006916036}
+  toolButtons:
+  - {fileID: 757774117279934743}
+  - {fileID: 6611545567368032005}
+  - {fileID: 1558240513020869875}
+  - {fileID: 2409292049048865931}
 --- !u!1 &3887139403189906720
 GameObject:
   m_ObjectHideFlags: 0

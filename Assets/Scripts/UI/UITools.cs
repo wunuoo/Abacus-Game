@@ -12,10 +12,28 @@ public class UITools : UIBase
     public TextMeshProUGUI toolDescription;
     public Image toolImage;
 
+    public GameObject[] toolButtons;
+
+    private void Start()
+    {
+        ToolManager.Instance.OnToolChange.AddListener(this.Refresh);
+        Refresh();
+    }
+
+    void Refresh()
+    {
+        foreach(var kv in ToolManager.Instance.toolGotten)
+        {
+            toolButtons[kv.Key - 1].SetActive(kv.Value == true);//有点烂，但先这么写着
+
+        }
+
+    }
+
 
     public void ShowDescription(int index)
     {
-        ToolInfo toolInfo = ToolInfoManager.Instance.tools[index];
+        ToolInfo toolInfo = ToolManager.Instance.tools[index];
         toolName.text = toolInfo.toolName;
         toolDescription.text = "<rotate=90>" + toolInfo.toolDescription;
         toolImage.sprite = toolInfo.toolImage;

@@ -7,17 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "创建道具配置", fileName = "道具配置")]
 public class ToolTable : ScriptableObject
 {
-    public Tool[] tools;
+    public ToolInfo[] tools;
 }
 
-[Serializable]
-public class Tool
-{
-    [Header("ID")]
-    public int ID;
-    [Header("名字")]
-    public string name;
-    [Header("图片")]
-    public Sprite img;
-}
 
