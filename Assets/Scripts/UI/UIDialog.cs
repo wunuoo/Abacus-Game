@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,12 +16,17 @@ public class UIDialog : UIBase
     int img_replacing_index;
     NPC lastSpeaker;
 
+    public Image toolDisplayBar;
+
     int index;
     int length;
 
     Dialog dialog;
     public void StartDialog(Dialog dialog)
     {
+        
+        DontDestroyOnLoad(this.gameObject);
+        gameObject.SetActive(true);
         this.index = 0;
         this.dialog = dialog;
         this.length = dialog.dialogNodes.Count;
@@ -46,7 +52,11 @@ public class UIDialog : UIBase
 
     void Play(DialogNode node)
     {
-        if(lastSpeaker == null || node.name != lastSpeaker.name)//说话者改变
+        if (node.name == "旁白")
+        {
+            characterName.text = node.name;
+        }
+        else if(lastSpeaker == null || node.name != lastSpeaker.name)//说话者改变
         {
             lastSpeaker = GameConfig.nameToNPC_Map[node.name];
             characterName.text = node.name;
@@ -57,17 +67,39 @@ public class UIDialog : UIBase
             img_replacing_index = 1 - img_replacing_index;//说话者改变，那么下次 该 被替换的应该是本次没替换掉的
             LowLight(portraits[img_replacing_index]);
         }
-
         content.text = node.content;
+
+        if (node.toolID != 0)
+        {
+            Tool toolDisplay = GameConfig.idToTool_Map[node.toolID];
+            ShowTool(toolDisplay.img);
+            toolDisplayBar.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            toolDisplayBar.gameObject.SetActive(false);
+        }
+
+        
+    }
+
+    private void ShowTool(Sprite img)
+    {
+        toolDisplayBar.sprite = img;
+        toolDisplayBar.SetNativeSize();
     }
 
     public void OnClickNext()
     {
+        //Debug.Log("当前index：" + index.ToString() + "  本对话长度：" + length);
+
         index++;
-        if(index == length)//说明已经是在最后一句对话中点击下一句了
+        if (index == length)//说明已经是在最后一句对话中点击下一句了
         {
-            //gameObject.SetActive(false);
-            this.OnClose();
+            
+            gameObject.SetActive(false);
+            //this.OnClose();
             DialogManager.Instance.OnDialogFinish();
         }
         else

@@ -23,11 +23,24 @@ public class EventManager : Singleton<EventManager>
             case 3:
                 this.ChapterFinish();
                 break;
+            case 4:
+                this.ShowSuanPan();
+                break;
             default:
                 Debug.LogError("指定的事件：" + index + " 不存在！");
                 break;
 
         }
+    }
+
+    private void ShowSuanPan()
+    {
+        UIMain.Instance.OnClickSuanPan();
+        UIMain.Instance.button_Back.onClick.AddListener(() => {
+            
+            ChapterManager.Instance.AssignNewDialog();
+            UIMain.Instance.button_Back.onClick.RemoveAllListeners();
+        });
     }
 
     private void ChapterFinish()
@@ -38,6 +51,7 @@ public class EventManager : Singleton<EventManager>
 
     private void StartNewDialog()
     {
+        //yield return new WaitForSeconds(1f);
         ChapterManager.Instance.AssignNewDialog();
     }
 

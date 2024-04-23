@@ -22,3 +22,6 @@ MonoBehaviour:
   - ID: 2
     name: "\u80E1\u795A\u4EC1"
     portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}
+  - ID: 3
+    name: "\u5F6D\u5C0F\u4E8C"
+    portrait: {fileID: 21300000, guid: 73fe77f7863dc784c9d500f2ea1bc871, type: 3}

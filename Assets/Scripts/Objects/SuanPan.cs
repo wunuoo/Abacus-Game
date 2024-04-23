@@ -15,7 +15,8 @@ public class SuanPan : MonoBehaviour
         this.value += value;
         UISuanPan.Instance.SetValue(this.value);
 
-        TaskManager.Instance.CheckResult(this.value);
+        if(TaskManager.Instance.currentTask != null)
+            TaskManager.Instance.CheckResult(this.value);
     }
 
 }

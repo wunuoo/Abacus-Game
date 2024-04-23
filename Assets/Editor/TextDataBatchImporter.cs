@@ -6,6 +6,7 @@ using System.Text;
 public class TextDataBatchImporter : EditorWindow
 {
     private TextAsset textAsset;
+    private TextAsset[] texts;
     private string[] textLines;
 
     [MenuItem("Tools/对话自动创建机")]

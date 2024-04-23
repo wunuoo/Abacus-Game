@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UIBase : MonoBehaviour
 {
+
     public virtual void OnClose()
     {
         Destroy(this.gameObject);
@@ -16,48 +17,50 @@ public class UIBase : MonoBehaviour
     }
 }
 
+
+
 public class UIManager : Singleton<UIManager>
 {
+    class UIElement
+    {
+        public string uiName;
+        public GameObject instance;
+    }
 
     public Dictionary<Type, string> uiNames = new Dictionary<Type, string>();
 
-    //public Dictionary<Type, GameObject> uiInstances = new Dictionary<Type, GameObject>();
+    Dictionary<Type, UIElement> uis = new Dictionary<Type, UIElement>();
 
     //public Dictionary<Type, string> uiNames = new Dictionary<Type, string>();
 
     // Start is called before the first frame update
     public UIManager()
     {
-        uiNames.Add(typeof(UIDialog), "UIDialog");
-        uiNames.Add(typeof(UISetting), "UISetting");
-        uiNames.Add(typeof(UITools), "UITools");
-        uiNames.Add(typeof(UIPauseGame), "UIPauseGame");
+        uis.Add(typeof(UIDialog), new UIElement() { uiName = "UIDialog"});
+        uis.Add(typeof(UISetting), new UIElement() { uiName = "UISetting" });
+        uis.Add(typeof(UITools), new UIElement() { uiName = "UITools" });
+        uis.Add(typeof(UIPauseGame), new UIElement() { uiName = "UIPauseGame" });
     }
 
     public T Show<T>()
     {
-        GameObject go;
-        //if (uiInstances.TryGetValue(typeof(T), out go)) //说明UI实例存在
-        //{
-        //    Debug.Log("find prefabHidden");
-        //    go.SetActive(true); // 显示已经实例化但被隐藏的预制体
-        //}
-        //else
-        //{
-            string name = "UI/" + uiNames[typeof(T)];
-            go = GameObject.Instantiate(Resources.Load<GameObject>(name)); // 在当前位置实例化预制体
-            //if (go != null)
-            //{
-            //    uiInstances.Add(typeof(T), go);
-            //}
-            //else Debug.LogError("找不到文件：" + name);
-        //}
-            if(go == null)
+        UIElement ui;
+        if (uis.TryGetValue(typeof(T), out ui)) 
+        {
+            Debug.Log("find prefabHidden");
+
+            if(ui.instance != null)
+                ui.instance.SetActive(true); // 显示已经实例化但被隐藏的预制体
+            else
             {
-                Debug.LogError("找不到文件：" + name);
-                return default(T);
+                string name = "UI/" + ui.uiName;
+                GameObject go = GameObject.Instantiate(Resources.Load<GameObject>(name)); // 在当前位置实例化预制体
+                ui.instance = go;
             }
-        return go.GetComponent<T>();
+        }
+        else Debug.LogError("找不到文件：" + typeof(T).ToString());
+    
+        return ui.instance.GetComponent<T>();
     }
 
     //public void Hide(Type type)

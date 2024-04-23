@@ -32,8 +32,12 @@ public class UITaskProcess : MonoBehaviour
     {
         if (!taskHaveSet)
         {
-            SetTask(TaskManager.Instance.currentTask, hintShowed);
-            taskHaveSet = true;
+            if(TaskManager.Instance.currentTask != null)
+            {
+                SetTask(TaskManager.Instance.currentTask, hintShowed);
+                taskHaveSet = true;
+            }
+
         }
 
         taskProcessSlider.value = TaskManager.Instance.resultIndex;

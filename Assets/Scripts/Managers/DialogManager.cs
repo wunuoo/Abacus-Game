@@ -14,6 +14,8 @@ public class DialogNode
     public Sprite portrait;//这个是给人看的，代码直接读取ID，也提供了手动微调的空间
     [TextArea, Header("说话内容")]
     public string content;
+    [Header("道具ID")]
+    public int toolID = 0;//如果是0，不显示道具，否则显示对应道具
 }
 
 public class DialogManager : MonoSingleton<DialogManager>

@@ -40,6 +40,7 @@ public class TaskManager : Singleton<TaskManager>
         TaskStatusChange?.Invoke();
         //Debug.Log("任务完成");
         EventManager.Instance.TriggerEvent(currentTask.eventIndex);
+        currentTask = null;
     }
 
     public void StartNewTask(Task task)

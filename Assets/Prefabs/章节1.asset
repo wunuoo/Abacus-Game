@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: "\u7AE0\u82821"
   m_EditorClassIdentifier: 
   dialogs:
-  - {fileID: 11400000, guid: 5e87079182224c44984348711f88f690, type: 2}
-  - {fileID: 11400000, guid: f7876805aee1aaf4b8a346a32877f82e, type: 2}
+  - {fileID: 11400000, guid: fc97e710cdbf2c8459a5ac82096fd218, type: 2}
+  - {fileID: 11400000, guid: b4618657d97818f41b9f8b102c86a74b, type: 2}
+  - {fileID: 11400000, guid: eba56eec15651e949a08e66212d07558, type: 2}
+  - {fileID: 11400000, guid: 7590a8e9666858443b9bd20e3100b4ca, type: 2}
+  - {fileID: 11400000, guid: 2ee8e1db5ff392741b37e32e0deb3fc7, type: 2}
+  - {fileID: 11400000, guid: 6de01738bcb00d54f82602c57cfa2da4, type: 2}
+  - {fileID: 11400000, guid: 4a84b343256675c4d873160781699002, type: 2}
+  - {fileID: 11400000, guid: 1e4d9e353b1435742a41c2967b7641f2, type: 2}
+  - {fileID: 11400000, guid: f84eea272691e8a4a921186dbffb2caa, type: 2}
+  - {fileID: 11400000, guid: a181c768462ef464ca333751f317c33a, type: 2}
+  - {fileID: 11400000, guid: b6f0d7dee982a7348937c8106854a63d, type: 2}
+  - {fileID: 11400000, guid: 558eca02790ce624db590b4263606597, type: 2}
   tasks:
   - {fileID: 11400000, guid: f15c2000b8193ac4492ae6e5491b3e0d, type: 2}
