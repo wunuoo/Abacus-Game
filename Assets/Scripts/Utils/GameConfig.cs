@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor;
+using UnityEngine;
 
 public static class GameConfig
 {
-    public static string NPCFilePath = "Assets/Prefabs/NPC配置.asset";
-    public static string ToolFilePath = "Assets/Prefabs/道具配置.asset";
+    public static string NPCFilePath = "NPC配置";
+    public static string ToolFilePath = "道具配置";
 
     //static Dictionary<int, string> IDtoName_Map = new Dictionary<int, string>();
     //static Dictionary<string, int> NametoID_Map = new Dictionary<string, int>();
@@ -15,13 +16,13 @@ public static class GameConfig
 
     static GameConfig()
     {
-        NPCTable NPCtable = AssetDatabase.LoadAssetAtPath<NPCTable>(GameConfig.NPCFilePath);//读取npc配置表
+        NPCTable NPCtable = Resources.Load<NPCTable>(GameConfig.NPCFilePath);//读取npc配置表
         foreach(var npc in NPCtable.npcs)
         {
             nameToNPC_Map.Add(npc.name, npc);
         }
 
-        ToolTable toolTable = AssetDatabase.LoadAssetAtPath<ToolTable>(GameConfig.ToolFilePath);//读取道具配置表
+        ToolTable toolTable = Resources.Load<ToolTable>(GameConfig.ToolFilePath);//读取道具配置表
         foreach (var tool in toolTable.tools)
         {
             idToTool_Map.Add(tool.toolID, tool);
