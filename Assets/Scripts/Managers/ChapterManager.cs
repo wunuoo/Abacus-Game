@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
+using UnityEngine.UI;
 
 //这个Manager掌控了游戏的剧情进度，相关属性
 public class ChapterManager : MonoSingleton<ChapterManager>
 {
-    
+    public PlayableDirector director;
+    public Image ppt;
 
     public bool canGoNextChapter = false;
 
@@ -22,7 +25,18 @@ public class ChapterManager : MonoSingleton<ChapterManager>
     // Start is called before the first frame update
     protected override void OnStart()
     {
-        StartChapter(chapterIndex);
+        ppt.gameObject.SetActive(true);
+        director.stopped += OnBeginAnimStop;
+        director.Play();
+        
+        
+    }
+
+    void OnBeginAnimStop(object arg)
+    {
+        ppt.gameObject.SetActive(false);
+        this.StartChapter(chapterIndex);
+        director.stopped -= OnBeginAnimStop;
     }
 
     //一个章节的基本流程是：开场对话 --》 分配任务 --》 完成任务 --》 成功对话 --》 分配任务 。。。 --》 进入章节后空闲 --》 下一章开场对话
