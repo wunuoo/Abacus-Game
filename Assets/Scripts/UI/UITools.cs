@@ -34,7 +34,7 @@ public class UITools : UIBase
     public void ShowDescription(int index)
     {
         ToolInfo toolInfo = ToolManager.Instance.tools[index];
-        toolName.text = toolInfo.toolName;
+        toolName.text = "<rotate=90>" + toolInfo.toolName;
         toolDescription.text = "<rotate=90>" + toolInfo.toolDescription;
         toolImage.sprite = toolInfo.toolImage;
         toolImage.SetNativeSize();
