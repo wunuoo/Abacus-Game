@@ -48,6 +48,7 @@ public class UIDialog : UIBase
     void Replace(Sprite pic)
     {
         portraits[img_replacing_index].sprite = pic;
+        portraits[img_replacing_index].SetNativeSize();
     }
 
     void Play(DialogNode node)

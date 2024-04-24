@@ -18,5 +18,6 @@ public class UIPauseGame : UIBase
     public void OnClickExit()
     {
         //ÍË³öÓÎÏ·
+        Application.Quit();
     }
 }
