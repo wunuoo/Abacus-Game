@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: -41.58461}
-  m_SizeDelta: {x: 1358, y: 956}
+  m_AnchoredPosition: {x: 0, y: -42.652}
+  m_SizeDelta: {x: 1431, y: 828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8506451303492248237
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c371b9a2f2e7e85459aac18dff7da225, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a384d5eda71caaa429d039c50bb04526, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 178a1d3403b0835488d517bacba6f557, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 196a89618af1c074493ee9b6b0feaa09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -440,8 +440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -730, y: 447}
-  m_SizeDelta: {x: 340, y: 88.7161}
+  m_AnchoredPosition: {x: -820, y: 450}
+  m_SizeDelta: {x: 165, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5417650948797574180
 CanvasRenderer:
@@ -471,8 +471,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4000a9c0562babc4fb892c6d459642bb, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: f9e728dd206933f45a6da5771c16d24e, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u8FD4\u56DE\u6E38\u620F"
+  m_text: "\u8FD4\u56DE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1534c020f3b07049b81283e04402444, type: 2}
   m_sharedMaterial: {fileID: -372811116749822683, guid: b1534c020f3b07049b81283e04402444, type: 2}
@@ -629,8 +629,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
