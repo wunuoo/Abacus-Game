@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class UITaskProcess : MonoBehaviour
     float width;
 
     bool hintShowed;
+
+    public TextMeshProUGUI taskReport;
 
     void Start()
     {
@@ -41,7 +44,8 @@ public class UITaskProcess : MonoBehaviour
         }
         else
         {
-            foreach(var pointer in pointers)
+            taskReport.text = "нч";
+            foreach (var pointer in pointers)
             {
                 Destroy(pointer.gameObject);
             }
@@ -84,6 +88,8 @@ public class UITaskProcess : MonoBehaviour
 
             go.SetActive(true);
         }
+
+        taskReport.text = task.report;
     }
 
 

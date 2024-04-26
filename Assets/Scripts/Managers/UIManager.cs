@@ -64,6 +64,20 @@ public class UIManager : Singleton<UIManager>
         return ui.instance.GetComponent<T>();
     }
 
+    public GameObject GetElementByType<T>()
+    {
+        GameObject instance = null;
+        if (uis.ContainsKey(typeof(T)))
+        {
+            instance = uis[typeof(T)].instance;
+        }
+        else
+        {
+            Debug.LogError("游戏ui对象不存在：" + typeof(T).ToString());
+        }
+        return instance;
+    }
+
     //public void Hide(Type type)
     //{
     //    GameObject go;

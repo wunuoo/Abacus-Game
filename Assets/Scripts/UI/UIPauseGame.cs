@@ -7,6 +7,10 @@ public class UIPauseGame : UIBase
     public void OnClickBackToTitle()
     {
         Destroy(UIMain.Instance.gameObject);
+        Destroy(UIManager.Instance.GetElementByType<UIDialog>());
+        Destroy(DialogManager.Instance.gameObject);
+        Destroy(ToolManager.Instance.gameObject);
+        Destroy(ChapterManager.Instance.gameObject);
         SceneManager.Instance.LoadScene("Title");
     }
 

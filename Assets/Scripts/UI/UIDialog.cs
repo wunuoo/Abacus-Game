@@ -16,10 +16,10 @@ public class UIDialog : UIBase
     int img_replacing_index;
     NPC lastSpeaker;
 
-    public Image toolDisplayBar;
+    public Image toolDisplayBar;//展示获得的道具
 
     int index;
-    int length;
+    int length;//当前播放对话段的句数
 
     public float defaultTextSpeed;//用来保存初始值
     float textSpeed;
