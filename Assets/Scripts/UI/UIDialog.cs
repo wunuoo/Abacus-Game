@@ -21,10 +21,14 @@ public class UIDialog : UIBase
     int index;
     int length;
 
+    public float defaultTextSpeed;//用来保存初始值
+    float textSpeed;
+    bool isSettingContent;
+
     Dialog dialog;
     public void StartDialog(Dialog dialog)
     {
-        
+        textSpeed = defaultTextSpeed;
         DontDestroyOnLoad(this.gameObject);
         gameObject.SetActive(true);
         this.index = 0;
@@ -67,7 +71,7 @@ public class UIDialog : UIBase
             img_replacing_index = 1 - img_replacing_index;//说话者改变，那么下次 该 被替换的应该是本次没替换掉的
             LowLight(portraits[img_replacing_index]);
         }
-        content.text = node.content;
+        StartCoroutine(SetContent(node.content));
 
         if (node.toolID != 0)
         {
@@ -85,6 +89,18 @@ public class UIDialog : UIBase
         
     }
 
+    IEnumerator SetContent(string fullContent)
+    {
+        isSettingContent = true;
+        content.text = "";
+        for (int i = 0; i < fullContent.Length; i++)
+        {
+            content.text += fullContent[i];
+            yield return new WaitForSeconds(textSpeed);
+        }
+        isSettingContent = false;
+    }
+
     private void ShowTool(Sprite img)
     {
         toolDisplayBar.sprite = img;
@@ -94,19 +110,27 @@ public class UIDialog : UIBase
     public void OnClickNext()
     {
         //Debug.Log("当前index：" + index.ToString() + "  本对话长度：" + length);
-
-        index++;
-        if (index == length)//说明已经是在最后一句对话中点击下一句了
+        if (isSettingContent)
         {
-            
-            gameObject.SetActive(false);
-            //this.OnClose();
-            DialogManager.Instance.OnDialogFinish();
+            textSpeed = 0;//快速播完对话
         }
         else
         {
-            Play(dialog.dialogNodes[index]);
+            textSpeed = defaultTextSpeed;
+            index++;
+            if (index == length)//说明已经是在最后一句对话中点击下一句了
+            {
+
+                gameObject.SetActive(false);
+                //this.OnClose();
+                DialogManager.Instance.OnDialogFinish();
+            }
+            else
+            {
+                Play(dialog.dialogNodes[index]);
+            }
         }
+
     }
 
     //public void OnDestroy()
@@ -116,7 +140,7 @@ public class UIDialog : UIBase
 
     private void Update()
     {
-        if (this.gameObject.activeSelf && Input.GetKey(KeyCode.E))
+        if (this.gameObject.activeSelf && Input.GetKeyDown(KeyCode.E))
         {
             this.OnClickNext();
         }

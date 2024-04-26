@@ -1146,3 +1146,4 @@ MonoBehaviour:
   - {fileID: 1705764304806969152}
   - {fileID: 4315657199957344782}
   toolDisplayBar: {fileID: 7151572272789574653}
+  defaultTextSpeed: 0.1

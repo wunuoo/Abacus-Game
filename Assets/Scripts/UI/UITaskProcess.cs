@@ -43,7 +43,7 @@ public class UITaskProcess : MonoBehaviour
         {
             foreach(var pointer in pointers)
             {
-                Destroy(pointer);
+                Destroy(pointer.gameObject);
             }
             this.pointers.Clear();
             taskHaveSet = false;
