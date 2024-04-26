@@ -17,7 +17,8 @@ public class GameStartManager : MonoBehaviour
 
     public void OnClickExit()
     {
-
+        //ÍË³öÓÎÏ·
+        Application.Quit();
     }
 
     public void OnClickSetting()
