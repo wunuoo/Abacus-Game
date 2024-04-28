@@ -47,8 +47,8 @@ public class EventManager : Singleton<EventManager>
     {
         UIMain.Instance.OnClickSuanPan();
         UIMain.Instance.button_Back.onClick.AddListener(() => {
-            
-            ChapterManager.Instance.AssignNewDialog();
+            SceneManager.Instance.loadCompleted += ChapterManager.Instance.AssignSceneChangeDialog;
+
             UIMain.Instance.button_Back.onClick.RemoveAllListeners();
         });
     }

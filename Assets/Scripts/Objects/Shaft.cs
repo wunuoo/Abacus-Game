@@ -11,7 +11,7 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
     public List<Bead> beads;
     public bool isShort;//短轴初始位置是在上的
 
-    public Vector2 preMousePos;    
+    public Vector2 preMousePos;//上一帧的鼠标位置
     Vector2 originMousePos;
     public List<Bead> movingBeads = new List<Bead>();
 
@@ -59,9 +59,9 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
         toMax = Abs(allDistance) > maxMoveDistance;//如果总移动距离超过上限，标记此次移动后将会超限
 
 
-        if ((canMoveDown && allDistance <= 0) || (!canMoveDown && allDistance >= 0))
+        if ((canMoveDown && allDistance <= 0) || (!canMoveDown && allDistance >= 0))//向下移动，delta是负数
         {
-            //
+            //正常移动，什么也不做
         }
         else//无效移动
         {
@@ -73,6 +73,11 @@ public class Shaft : MonoBehaviour//算盘的某一根轴
             Vector2 nextPos = bead.transform.position + new Vector3(0, deltaY, 0);
             if (toMax)
             {
+                if (!bead.hasToMax)
+                {
+                    SoundManager.Instance.PlaySound("bead");
+                    bead.hasToMax = true;
+                }
                 bead.MoveTo(bead.otherSlotPos);
             }
             else

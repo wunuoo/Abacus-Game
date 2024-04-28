@@ -12,17 +12,23 @@ public class GameStartManager : MonoBehaviour
 
     public void OnClickStart()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
+
         SceneManager.Instance.LoadScene("Main");
     }
 
     public void OnClickExit()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
         //ÍË³öÓÎÏ·
         Application.Quit();
     }
 
     public void OnClickSetting()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         UIManager.Instance.Show<UISetting>();
     }
 }

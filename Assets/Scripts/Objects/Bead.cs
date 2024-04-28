@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Bead : MonoBehaviour
 {
-    public static float height = 0.1f;
     public int index;
     public Shaft owner;
     bool selected;
@@ -14,6 +13,8 @@ public class Bead : MonoBehaviour
     public Vector2 otherSlotPos;//算珠另一个停靠的位置
 
     public bool isDown;//在下面是true
+
+    public bool hasToMax = false;//true = 此算珠已经到达另一端
 
     public void Start()
     {
@@ -67,6 +68,8 @@ public class Bead : MonoBehaviour
         Vector2 temp = slotPos;
         slotPos = otherSlotPos;//当isDown为true，说明此次位移是往下
         otherSlotPos = temp;
+
+        hasToMax = false;//已经结算了，应当重置为否
     }
 
     public void MoveToSlot()

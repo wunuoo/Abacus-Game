@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIMain : MonoSingleton<UIMain>
 {
+
     public Button button_NextChapter;
     public Button button_SuanPan;
     public Button button_Back;
@@ -32,11 +33,15 @@ public class UIMain : MonoSingleton<UIMain>
 
     public void OnClickNextChapter()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         ChapterManager.Instance.StartNewChapter();
     }
 
     public void OnClickSuanPan()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         SceneManager.Instance.LoadScene("SuanPan");
         suanPanMode = true;
         Refresh();
@@ -44,6 +49,8 @@ public class UIMain : MonoSingleton<UIMain>
 
     public void OnClickBack()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         SceneManager.Instance.LoadScene("Main");
         suanPanMode = false;
         Refresh();
@@ -51,18 +58,22 @@ public class UIMain : MonoSingleton<UIMain>
 
     public void OnClickTools()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         UIManager.Instance.Show<UITools>();
-
-
     }
 
     public void OnClickPause()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         UIManager.Instance.Show<UIPauseGame>();
     }
 
     public void OnClickRecord()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         UIManager.Instance.Show<UIRecord>();
     }
 
@@ -75,4 +86,6 @@ public class UIMain : MonoSingleton<UIMain>
         }
         
     }
+
+
 }

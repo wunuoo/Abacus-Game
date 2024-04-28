@@ -6,6 +6,8 @@ using UnityEngine;
 
 public static class GameConfig
 {
+    public static string ButtonSound = "button";
+
     public static string NPCFilePath = "NPC配置";
     public static string ToolFilePath = "道具配置";
 

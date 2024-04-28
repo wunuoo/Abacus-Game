@@ -59,6 +59,12 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         dialogIndex++;
     }
 
+    internal void AssignSceneChangeDialog()
+    {
+        AssignNewDialog();
+        SceneManager.Instance.loadCompleted -= AssignSceneChangeDialog;
+    }
+
     internal void OnChapterFinished()
     {
         canGoNextChapter = true;

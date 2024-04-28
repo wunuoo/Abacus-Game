@@ -8,6 +8,8 @@ public class UIBase : MonoBehaviour
 
     public virtual void OnClose()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         Destroy(this.gameObject);
     }
 

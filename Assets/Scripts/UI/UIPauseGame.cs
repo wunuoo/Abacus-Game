@@ -6,6 +6,8 @@ public class UIPauseGame : UIBase
 {
     public void OnClickBackToTitle()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         Destroy(UIMain.Instance.gameObject);
         Destroy(UIManager.Instance.GetElementByType<UIDialog>());
         Destroy(DialogManager.Instance.gameObject);
@@ -16,11 +18,15 @@ public class UIPauseGame : UIBase
 
     public void OnClickSetting()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         UIManager.Instance.Show<UISetting>();
     }
 
     public void OnClickExit()
     {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
         //ÍË³öÓÎÏ·
         Application.Quit();
     }

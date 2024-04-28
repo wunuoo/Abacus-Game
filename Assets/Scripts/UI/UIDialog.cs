@@ -145,5 +145,9 @@ public class UIDialog : UIBase
         {
             this.OnClickNext();
         }
+        if (this.gameObject.activeSelf && Input.GetKey(KeyCode.R))
+        {
+            this.OnClickNext();
+        }
     }
 }
