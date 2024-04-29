@@ -25,3 +25,21 @@ MonoBehaviour:
   - ID: 3
     name: "\u5F6D\u5C0F\u4E8C"
     portrait: {fileID: 21300000, guid: 73fe77f7863dc784c9d500f2ea1bc871, type: 3}
+  - ID: 4
+    name: "\u674E\u5578"
+    portrait: {fileID: 21300000, guid: 19203330e6ab9b24a9f37b76fd4b4a55, type: 3}
+  - ID: 5
+    name: "\u738B\u8D3E\u6B63"
+    portrait: {fileID: 21300000, guid: 58312819b5815a646a7e0260dbf3e21d, type: 3}
+  - ID: 6
+    name: "\u5468\u884C\u77E5"
+    portrait: {fileID: 21300000, guid: 7a45e5ca06c3b8c4d80ba7d6a7005613, type: 3}
+  - ID: 7
+    name: "\u6797\u79C0\u59D1"
+    portrait: {fileID: 21300000, guid: f3cd14b1a98d9114c8bf1d963568cc32, type: 3}
+  - ID: 8
+    name: "\u6C88\u783A"
+    portrait: {fileID: 21300000, guid: e82d08a8a0ad5e346b96ae2b60c3bb1a, type: 3}
+  - ID: 9
+    name: "\u8859\u95E8"
+    portrait: {fileID: 21300000, guid: 139c384e6f5dc6b4ea9cb58e75c057e4, type: 3}

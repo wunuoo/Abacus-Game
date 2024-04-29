@@ -36,6 +36,7 @@ public class UIMain : MonoSingleton<UIMain>
         SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
 
         ChapterManager.Instance.StartNewChapter();
+        Refresh();
     }
 
     public void OnClickSuanPan()

@@ -29,11 +29,19 @@ public class EventManager : Singleton<EventManager>
             case 5:
                 this.GiveBooks();
                 break;
+            case 6:
+                this.CheckMap();
+                break;
             default:
                 Debug.LogError("指定的事件：" + index + " 不存在！");
                 break;
 
         }
+    }
+
+    private void CheckMap()
+    {
+        throw new NotImplementedException();
     }
 
     private void GiveBooks()

@@ -2769,6 +2769,11 @@ MonoBehaviour:
   canGoNextChapter: 0
   chapters:
   - {fileID: 11400000, guid: 4be4581638c4f0e43923637c1991424b, type: 2}
+  - {fileID: 11400000, guid: d78e15c13960b1b4e9c6997c57bca0e5, type: 2}
+  - {fileID: 11400000, guid: e2adca0dd9b9d5146ad1d6d8937bd7f0, type: 2}
+  - {fileID: 11400000, guid: 9db7454b5ae463541854ab0c7b484ddd, type: 2}
+  - {fileID: 11400000, guid: 4069bfefeed1e0a4589b072cf13a3e97, type: 2}
+  - {fileID: 11400000, guid: 945d36a234973af4da5d480dd9c1e796, type: 2}
 --- !u!320 &1632698346
 PlayableDirector:
   m_ObjectHideFlags: 0

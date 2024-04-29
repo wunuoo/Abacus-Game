@@ -43,6 +43,9 @@ public class ChapterManager : MonoSingleton<ChapterManager>
     void StartChapter(int index)
     {
         currentChapter = chapters[index];
+        dialogIndex = 0;
+        taskIndex = 0;
+        canGoNextChapter = false;
         AssignNewDialog();//开场对话
         
     }
