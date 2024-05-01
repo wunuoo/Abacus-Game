@@ -15,31 +15,41 @@ MonoBehaviour:
   npcs:
   - ID: 0
     name: "\u65C1\u767D"
+    description: 
     portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   - ID: 1
     name: "\u9646\u8317"
+    description: "1\u53F7\u63CF\u8FF0"
     portrait: {fileID: 21300000, guid: c9644680367989e418fad5f1a9c75766, type: 3}
   - ID: 2
     name: "\u80E1\u795A\u4EC1"
+    description: "2\u53F7\u63CF\u8FF0"
     portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}
   - ID: 3
     name: "\u5F6D\u5C0F\u4E8C"
+    description: 
     portrait: {fileID: 21300000, guid: 73fe77f7863dc784c9d500f2ea1bc871, type: 3}
   - ID: 4
     name: "\u674E\u5578"
+    description: "4\u53F7\u63CF\u8FF0"
     portrait: {fileID: 21300000, guid: 19203330e6ab9b24a9f37b76fd4b4a55, type: 3}
   - ID: 5
     name: "\u738B\u8D3E\u6B63"
+    description: 
     portrait: {fileID: 21300000, guid: 58312819b5815a646a7e0260dbf3e21d, type: 3}
   - ID: 6
     name: "\u5468\u884C\u77E5"
+    description: 
     portrait: {fileID: 21300000, guid: 7a45e5ca06c3b8c4d80ba7d6a7005613, type: 3}
   - ID: 7
     name: "\u6797\u79C0\u59D1"
+    description: 
     portrait: {fileID: 21300000, guid: f3cd14b1a98d9114c8bf1d963568cc32, type: 3}
   - ID: 8
     name: "\u6C88\u783A"
+    description: 
     portrait: {fileID: 21300000, guid: e82d08a8a0ad5e346b96ae2b60c3bb1a, type: 3}
   - ID: 9
     name: "\u8859\u95E8"
+    description: 
     portrait: {fileID: 21300000, guid: 139c384e6f5dc6b4ea9cb58e75c057e4, type: 3}

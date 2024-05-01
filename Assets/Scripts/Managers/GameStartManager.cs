@@ -8,6 +8,7 @@ public class GameStartManager : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.PlayMusic("bgm_title");
+
     }
 
     public void OnClickStart()

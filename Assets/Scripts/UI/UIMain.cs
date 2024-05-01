@@ -64,6 +64,13 @@ public class UIMain : MonoSingleton<UIMain>
         UIManager.Instance.Show<UITools>();
     }
 
+    public void OnClickCharInfo()
+    {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
+        UIManager.Instance.Show<UICharInfo>();
+    }
+
     public void OnClickPause()
     {
         SoundManager.Instance.PlaySound(GameConfig.ButtonSound);

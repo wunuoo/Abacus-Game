@@ -36,16 +36,7 @@ public class UIDialog : UIBase
         PlayCurrentNode();
     }
 
-    void HightLight(Image img)
-    {
-        img.color = Color.white;
-    }
 
-    void LowLight(Image img)
-    {
-        img.color = Color.gray;
-        
-    }
 
 
     void Replace(Sprite pic)
@@ -67,10 +58,10 @@ public class UIDialog : UIBase
             characterName.text = node.name;
 
             Replace(lastSpeaker.portrait);
-            HightLight(portraits[img_replacing_index]);
+            GameUtil.HightLight(portraits[img_replacing_index]);
             portraits[img_replacing_index].gameObject.SetActive(true);
             img_replacing_index = 1 - img_replacing_index;//说话者改变，那么下次 该 被替换的应该是本次没替换掉的
-            LowLight(portraits[img_replacing_index]);
+            GameUtil.LowLight(portraits[img_replacing_index]);
         }
         StartCoroutine(SetContent(node.content));
 

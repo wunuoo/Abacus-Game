@@ -17,7 +17,10 @@ public class NPC
     public int ID;
     [Header("Ãû×Ö")]
     public string name;
+    [Header("ÃèÊöĞÅÏ¢"),TextArea]
+    public string description;
     [Header("Ğ¤Ïñ")]
     public Sprite portrait;
+
 }
 
