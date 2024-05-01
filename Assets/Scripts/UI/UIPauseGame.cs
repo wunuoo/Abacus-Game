@@ -30,4 +30,12 @@ public class UIPauseGame : UIBase
         //ÍË³öÓÎÏ·
         Application.Quit();
     }
+
+    public void OnClickSave()
+    {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
+        UIManager.Instance.Show<UISave>();
+        this.OnClose();
+    }
 }

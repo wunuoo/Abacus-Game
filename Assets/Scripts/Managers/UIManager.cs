@@ -43,6 +43,7 @@ public class UIManager : Singleton<UIManager>
         uis.Add(typeof(UITools), new UIElement() { uiName = "UITools" });
         uis.Add(typeof(UIPauseGame), new UIElement() { uiName = "UIPauseGame" });
         uis.Add(typeof(UIRecord), new UIElement() { uiName = "UIRecord" });
+        uis.Add(typeof(UISave), new UIElement() { uiName = "UISave" });
     }
 
     public T Show<T>()

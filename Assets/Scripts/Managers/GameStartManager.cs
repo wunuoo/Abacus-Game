@@ -14,7 +14,6 @@ public class GameStartManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
 
-
         SceneManager.Instance.LoadScene("Main");
     }
 
@@ -30,5 +29,12 @@ public class GameStartManager : MonoBehaviour
         SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
 
         UIManager.Instance.Show<UISetting>();
+    }
+
+    public void OnClickSave()
+    {
+        SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
+
+        UIManager.Instance.Show<UISave>();
     }
 }

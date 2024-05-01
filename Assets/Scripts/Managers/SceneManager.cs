@@ -8,10 +8,12 @@ using UnityEngine.UI;
 public class SceneManager : MonoSingleton<SceneManager>
 {
     UnityAction<float> onProgress = null;
-    public UnityAction loadCompleted = null;
+    public UnityEvent loadCompleted = new UnityEvent();
 
     public float fadeSpeed = 3f;
     public RawImage muskImage;
+
+    string lastSceneName = "Title";
 
     // Use this for initialization
     protected override void OnStart()
@@ -19,14 +21,21 @@ public class SceneManager : MonoSingleton<SceneManager>
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsOnTitle()
     {
+        //Debug.Log(UnityEngine.SceneManagement.SceneManager.GetActiveScene().ToString());
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Title";
+    }
 
+    public void BackToLastScene()
+    {
+        LoadScene(lastSceneName);
     }
 
     public void LoadScene(string name)
     {
+        lastSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().ToString();
+
         StartCoroutine(LoadLevel(name));
         //LoadLevelQuick(name);
     }
@@ -70,10 +79,9 @@ public class SceneManager : MonoSingleton<SceneManager>
         Debug.Log("LevelLoadCompleted:" + obj.progress);
 
         StartCoroutine(FadeOut());
-        if(loadCompleted != null)
-        {
-            this.loadCompleted();
-        }
+
+        loadCompleted?.Invoke();
+        loadCompleted.RemoveAllListeners();//这个事件是一次性的
         
     }
 

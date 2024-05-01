@@ -25,16 +25,15 @@ public class UIDialog : UIBase
     float textSpeed;
     bool isSettingContent;
 
-    Dialog dialog;
     public void StartDialog(Dialog dialog)
     {
         textSpeed = defaultTextSpeed;
         DontDestroyOnLoad(this.gameObject);
         gameObject.SetActive(true);
-        this.index = 0;
-        this.dialog = dialog;
+
+        this.index = DialogManager.Instance.nodeIndex;
         this.length = dialog.dialogNodes.Count;
-        Play(dialog.dialogNodes[index]);
+        PlayCurrentNode();
     }
 
     void HightLight(Image img)
@@ -55,8 +54,9 @@ public class UIDialog : UIBase
         portraits[img_replacing_index].SetNativeSize();
     }
 
-    void Play(DialogNode node)
+    void PlayCurrentNode()
     {
+        DialogNode node = DialogManager.Instance.currentNode;
         if (node.name == "旁白")
         {
             characterName.text = node.name;
@@ -79,8 +79,6 @@ public class UIDialog : UIBase
             ToolInfo toolDisplay = GameConfig.idToTool_Map[node.toolID];
             ShowTool(toolDisplay.toolImage);
             toolDisplayBar.gameObject.SetActive(true);
-
-            ToolManager.Instance.GiveTool(node.toolID);
         }
         else
         {
@@ -121,14 +119,16 @@ public class UIDialog : UIBase
             index++;
             if (index == length)//说明已经是在最后一句对话中点击下一句了
             {
-
+                index = 0;
                 gameObject.SetActive(false);
                 //this.OnClose();
                 DialogManager.Instance.OnDialogFinish();
+                
             }
             else
             {
-                Play(dialog.dialogNodes[index]);
+                DialogManager.Instance.OnDialogNodeFinish(index);
+                PlayCurrentNode();
             }
         }
 

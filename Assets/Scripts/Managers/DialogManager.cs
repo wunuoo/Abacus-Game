@@ -24,13 +24,19 @@ public class DialogManager : MonoSingleton<DialogManager>
 
     Dialog currentDialog;
 
+    public DialogNode currentNode;
+    public int nodeIndex;
+
     //处理从ChapterManager传来的指令
     public void PlayDialog(Dialog dialog)
     {
+        currentDialog = dialog;
+        currentNode = dialog.dialogNodes[nodeIndex];
+
         UIDialog ui = UIManager.Instance.Show<UIDialog>();
         ui.StartDialog(dialog);
+        nodeIndex++;
 
-        currentDialog = dialog;
         speaking = true;
         DisableAllColliders(speaking);
     }
@@ -38,9 +44,21 @@ public class DialogManager : MonoSingleton<DialogManager>
     //当用户点击最后一个下一句按钮后，触发这个函数
     internal void OnDialogFinish()
     {
+        nodeIndex = 0;
         speaking = false;
         DisableAllColliders(speaking);
         EventManager.Instance.TriggerEvent(currentDialog.dialogEventIndex);
+    }
+
+    public void OnDialogNodeFinish(int index)
+    {
+        if (currentNode.toolID != 0)
+        {
+            ToolManager.Instance.GiveTool(currentNode.toolID);
+        }
+
+        nodeIndex = index;
+        currentNode = currentDialog.dialogNodes[nodeIndex];
     }
 
     // 禁用或启用所有其他对象上的Collider组件
