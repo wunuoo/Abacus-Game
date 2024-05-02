@@ -9,6 +9,7 @@ public class UILDArea : MonoBehaviour
     public Animator anim;
     public bool isBig;
 
+    public RectTransform rect;
 
     public void OnClickExpand()
     {
@@ -31,16 +32,34 @@ public class UILDArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (isBig && Input.GetMouseButtonDown(0))
+        //{
+        //    // 检测点击位置是否在UI上
+        //    if (EventSystem.current.currentSelectedGameObject == null || EventSystem.current.currentSelectedGameObject != this.gameObject)
+        //    {
+        //        //anim.SetTrigger("MouseOut");
+        //        anim.SetBool("GetMouse", false);
+
+        //        isBig = false;
+        //    }
+        //}
+
         if (isBig && Input.GetMouseButtonDown(0))
         {
-            // 检测点击位置是否在UI上
-            if (!EventSystem.current.IsPointerOverGameObject())
+            
+            if (Input.mousePosition.x > transform.position.x + rect.rect.width / 2 ||
+                Input.mousePosition.y > transform.position.y + rect.rect.height / 2)
             {
-                //anim.SetTrigger("MouseOut");
                 anim.SetBool("GetMouse", false);
-
                 isBig = false;
             }
+            else
+            {
+
+            }
         }
+
+
     }
+
 }

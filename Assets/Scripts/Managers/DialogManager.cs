@@ -16,6 +16,8 @@ public class DialogNode
     public string content;
     [Header("道具ID")]
     public int toolID = 0;//如果是0，不显示道具，否则显示对应道具
+    [Header("NPC信息")]
+    public int npcID = 0;//如果是0，不反应，否则获取对应NPC信息
 }
 
 public class DialogManager : MonoSingleton<DialogManager>
@@ -55,6 +57,11 @@ public class DialogManager : MonoSingleton<DialogManager>
         if (currentNode.toolID != 0)
         {
             ToolManager.Instance.GiveTool(currentNode.toolID);
+        }
+
+        if (currentNode.npcID != 0)
+        {
+            CharInfoManager.Instance.MeetNPC(currentNode.npcID);
         }
 
         nodeIndex = index;

@@ -21,8 +21,6 @@ public class CharInfoManager : Singleton<CharInfoManager>
 
         }
         npcMeet[1] = true;
-        npcMeet[2] = true;
-        npcMeet[4] = true;
     }
 
     public void MeetNPC(int ID)

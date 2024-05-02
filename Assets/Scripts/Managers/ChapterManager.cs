@@ -11,9 +11,6 @@ using UnityEngine.UI;
 //这个Manager掌控了游戏的剧情进度，相关属性
 public class ChapterManager : MonoSingleton<ChapterManager>
 {
-    public PlayableDirector director;
-    public Image ppt;
-
     public bool canGoNextChapter = false;
 
     public List<Chapter> chapters = new List<Chapter>();
@@ -23,21 +20,38 @@ public class ChapterManager : MonoSingleton<ChapterManager>
     public int chapterIndex = 0;
     public int dialogIndex = 0;
     public int taskIndex = 0;
+    
 
-    // Start is called before the first frame update
+    // 这个函数是整个游戏的开始
     protected override void OnStart()
     {
         if(SaveManager.Instance.currentSave == null)
         {
             Debug.Log("新游戏开始");
-            ppt.gameObject.SetActive(true);
-            director.stopped += OnBeginAnimStop;
-            director.Play();
+            CGManager.Instance.OnBlackMuskFaded.AddListener(() => {
+                CGManager.Instance.ShowNextImage();
+            });
+            //SceneManager.Instance.loadCompleted.AddListener(() => { StartChapter(0); });
+            StartChapter(0);
         }
         else
         {
             StartBySave(SaveManager.Instance.currentSave);
         }
+    }
+
+    //一个章节的基本流程是：开场对话 --》 分配任务 --》 完成任务 --》 成功对话 --》 分配任务 。。。 --》 进入章节后空闲 --》 下一章开场对话
+    public void StartChapter(int index)
+    {
+        currentChapter = chapters[index];
+        dialogIndex = 0;
+        taskIndex = 0;
+        canGoNextChapter = false;
+        CGManager.Instance.OnBlackMuskFaded.AddListener(() => {
+            AssignNewDialog();
+        });
+        CGManager.Instance.PlayChapterBegin(currentChapter, chapterIndex);//开场对话
+
     }
 
     public void StartBySave(Save save)
@@ -47,6 +61,8 @@ public class ChapterManager : MonoSingleton<ChapterManager>
 
         RecordManager.Instance.recordsUnlockIndex = save.recordIndex;
         ToolManager.Instance.toolGotten = save.toolGottenTable;
+        CharInfoManager.Instance.npcMeet = save.npcMeetTable;
+        CGManager.Instance.pptIndex = save.pptIndex;
 
         chapterIndex = save.chapterIndex;
         dialogIndex = save.dialogIndex;
@@ -76,23 +92,20 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         }
     }
 
-    void OnBeginAnimStop(object arg)
+    internal void OnGameEnd()
     {
-        ppt.gameObject.SetActive(false);
-        this.StartChapter(0);
-        director.stopped -= OnBeginAnimStop;
+        IEnumerator ShowPics()
+        {
+            CGManager.Instance.ShowNextImage();
+            yield return new WaitForSeconds(2f);
+            CGManager.Instance.ShowNextImage();
+            yield return new WaitForSeconds(2f);
+            UIManager.Instance.Show<UIEnd>();
+        }
+        StartCoroutine(ShowPics());
+
     }
 
-    //一个章节的基本流程是：开场对话 --》 分配任务 --》 完成任务 --》 成功对话 --》 分配任务 。。。 --》 进入章节后空闲 --》 下一章开场对话
-    void StartChapter(int index)
-    {
-        currentChapter = chapters[index];
-        dialogIndex = 0;
-        taskIndex = 0;
-        canGoNextChapter = false;
-        AssignNewDialog();//开场对话
-        
-    }
 
     public void StartNewChapter()
     {
@@ -131,6 +144,4 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         TaskManager.Instance.StartNewTask(currentChapter.tasks[taskIndex]);
         taskIndex++;
     }
-
-
 }

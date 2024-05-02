@@ -13,9 +13,11 @@ public class Save
     public int dialogIndex;
     public int dialogNodeIndex;
     public int taskIndex;
+    public int pptIndex;
 
     public int recordIndex;
     public Dictionary<int, bool> toolGottenTable;//保存目前已经得到的物品
+    public Dictionary<int, bool> npcMeetTable;//保存目前已经知晓的NPC
     public GameStatus gamestatus;
 
     public DateTime saveTime;//保存存档时间戳
@@ -49,7 +51,9 @@ public class SaveManager : Singleton<SaveManager>
         save.dialogNodeIndex = DialogManager.Instance.nodeIndex;
         save.taskIndex = ChapterManager.Instance.taskIndex;
         save.recordIndex = RecordManager.Instance.recordsUnlockIndex;
+        save.pptIndex = CGManager.Instance.pptIndex;
         save.toolGottenTable = ToolManager.Instance.toolGotten;
+        save.npcMeetTable = CharInfoManager.Instance.npcMeet;
 
         save.gamestatus = EventManager.Instance.gameStatus;
         save.saveTime = DateTime.Now;
@@ -105,7 +109,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             currentSave = save;
         }
-
+        //读入数据的操作由ChapterManager完成
         SceneManager.Instance.LoadScene("Main");
 
     }

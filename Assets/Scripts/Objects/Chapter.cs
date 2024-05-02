@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "创建章节", fileName = "章节")]
 public class Chapter : ScriptableObject
 {
+    public string chapterName;
+
     public Dialog[] dialogs;
 
     public Task[] tasks;

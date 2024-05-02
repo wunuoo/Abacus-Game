@@ -14,6 +14,7 @@ public class SceneManager : MonoSingleton<SceneManager>
     public RawImage muskImage;
 
     string lastSceneName = "Title";
+    private bool fadeOutMode;
 
     // Use this for initialization
     protected override void OnStart()
@@ -32,10 +33,11 @@ public class SceneManager : MonoSingleton<SceneManager>
         LoadScene(lastSceneName);
     }
 
-    public void LoadScene(string name)
+    public void LoadScene(string name, bool fadeout = true)
     {
-        lastSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().ToString();
+        lastSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
+        this.fadeOutMode = fadeout;
         StartCoroutine(LoadLevel(name));
         //LoadLevelQuick(name);
     }
@@ -48,6 +50,7 @@ public class SceneManager : MonoSingleton<SceneManager>
 
     IEnumerator LoadLevel(string name)
     {
+        //拉上黑幕
         float alpha = 0;
         while (alpha < 1)
         {
@@ -78,22 +81,14 @@ public class SceneManager : MonoSingleton<SceneManager>
             onProgress(1f);
         Debug.Log("LevelLoadCompleted:" + obj.progress);
 
-        StartCoroutine(FadeOut());
+        if (fadeOutMode)
+            StartCoroutine(GameUtil.FadeOut(muskImage, fadeSpeed));
+        else
+            muskImage.color = new Color(0, 0, 0, 0);
 
         loadCompleted?.Invoke();
         loadCompleted.RemoveAllListeners();//这个事件是一次性的
         
     }
 
-    IEnumerator FadeOut()
-    {
-        float alpha = 1;
-        while (alpha > 0)
-        {
-            alpha -= Time.deltaTime * fadeSpeed;
-            muskImage.color = new Color(0, 0, 0, alpha);
-            yield return null;
-
-        }
-    }
 }

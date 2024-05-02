@@ -19,16 +19,20 @@ public class SoundManager : MonoSingleton<SoundManager>
     string soundPath = "Sound/";
     string musicPath = "Music/";
 
+    public float SoundVolume { get => soundVolume; set => soundVolume = value; }
+    public float MusicVolume { get => musicVolume; set => musicVolume = value; }
+
     public void OnChangeVolume(SoundType type, float value)
     {
         switch (type)
         {
             case SoundType.Sound:
                 SoundPlayer.volume = value / 100f;
+                soundVolume = value;
                 break;
             case SoundType.Music:
                 BGMPlayer.volume = value / 100f;
-                
+                musicVolume = value;
                 break;
             default:
                 break;

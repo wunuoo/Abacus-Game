@@ -94,6 +94,4 @@ public class UIMain : MonoSingleton<UIMain>
         }
         
     }
-
-
 }

@@ -47,11 +47,44 @@ public class EventManager : Singleton<EventManager>
             case 6:
                 this.CheckMap();
                 break;
+            case 7:
+                this.ChangeSite();
+                break;
+            case 8:
+                this.HideBG();
+                break;
+            case 9:
+                this.GameEnd();
+                break;
+            case 10:
+                this.GameEnd();
+                break;
             default:
                 Debug.LogError("指定的事件：" + index + " 不存在！");
                 break;
 
         }
+    }
+
+    private void GameEnd()
+    {
+        UIMain.Instance.gameObject.SetActive(false);
+        ChapterManager.Instance.OnGameEnd();
+        
+    }
+
+
+
+    private void HideBG()
+    {
+        CGManager.Instance.HidePPT();
+        ChapterManager.Instance.AssignNewDialog();
+    }
+
+    private void ChangeSite()
+    {
+        CGManager.Instance.ShowNextImage();
+        ChapterManager.Instance.AssignNewDialog();
     }
 
     private void CheckMap()

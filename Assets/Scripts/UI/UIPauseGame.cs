@@ -13,6 +13,7 @@ public class UIPauseGame : UIBase
         Destroy(DialogManager.Instance.gameObject);
         Destroy(ToolManager.Instance.gameObject);
         Destroy(ChapterManager.Instance.gameObject);
+        Destroy(CGManager.Instance.gameObject);
         SceneManager.Instance.LoadScene("Title");
     }
 
