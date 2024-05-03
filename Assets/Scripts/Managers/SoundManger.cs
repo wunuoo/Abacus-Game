@@ -10,8 +10,8 @@ public enum SoundType
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    float soundVolume;
-    float musicVolume;
+    float soundVolume = 100;
+    float musicVolume = 100;
 
     public AudioSource BGMPlayer;
     public AudioSource SoundPlayer;

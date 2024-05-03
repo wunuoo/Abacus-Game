@@ -75,7 +75,24 @@ public class Shaft : MonoBehaviour//À„≈Ãµƒƒ≥“ª∏˘÷·
             {
                 if (!bead.hasToMax)
                 {
-                    SoundManager.Instance.PlaySound("bead");
+                    System.Random rand = new System.Random();
+                    string soundName;
+                    switch (rand.Next(0, 2))
+                    {
+                        case 0:
+                            soundName = "bead";
+                            break;
+                        case 1:
+                            soundName = "bead2";
+                            break;
+                        case 2:
+                            soundName = "bead3";
+                            break;
+                        default:
+                            soundName = "bead";
+                            break;
+                    }
+                    SoundManager.Instance.PlaySound(soundName);
                     bead.hasToMax = true;
                 }
                 bead.MoveTo(bead.otherSlotPos);

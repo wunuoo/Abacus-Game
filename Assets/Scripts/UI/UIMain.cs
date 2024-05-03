@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,40 @@ using UnityEngine.UI;
 
 public class UIMain : MonoSingleton<UIMain>
 {
-
     public Button button_NextChapter;
+
     public Button button_SuanPan;
     public Button button_Back;
+    public GameObject button_Cheat;
+
+    public UIEnvInfoBar[] info_bars;
 
     bool suanPanMode;
 
-    // Start is called before the first frame update
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            button_Cheat.gameObject.SetActive(!button_Cheat.gameObject.activeSelf);
+        }
+    }
+
+    internal void OnClickEnvItem(int index)
+    {
+        for (int i = 0; i < info_bars.Length; i++)
+        {
+            UIEnvInfoBar ui = info_bars[i];
+            if (i == index)
+            {
+                ui.showed = !ui.showed;
+            }
+            else ui.showed = false;
+            
+            ui.anim.SetBool("Show", ui.showed);
+        }
+        
+    }
+
     protected override void OnStart()
     {
         EventManager.Instance.OnChapterFinish += this.Refresh;
@@ -48,6 +75,7 @@ public class UIMain : MonoSingleton<UIMain>
         Refresh();
     }
 
+    //返回主界面
     public void OnClickBack()
     {
         SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
@@ -85,11 +113,13 @@ public class UIMain : MonoSingleton<UIMain>
         UIManager.Instance.Show<UIRecord>();
     }
 
+    //测试用按钮，方便跳过任务
     public void OnClickCheat()
     {
         Task task = TaskManager.Instance.currentTask;
         if (task != null)
         {
+            //触发一次检测中间结果，必定成功
             TaskManager.Instance.CheckResult(task.results[TaskManager.Instance.resultIndex]);
         }
         

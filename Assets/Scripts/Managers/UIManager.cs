@@ -53,7 +53,7 @@ public class UIManager : Singleton<UIManager>
         UIElement ui;
         if (uis.TryGetValue(typeof(T), out ui)) 
         {
-            Debug.Log("find prefabHidden");
+            //Debug.Log("find prefabHidden");
 
             if(ui.instance != null)
                 ui.instance.SetActive(true); // 显示已经实例化但被隐藏的预制体
