@@ -18,6 +18,7 @@ public class UITools : UIBase
     {
         ToolManager.Instance.OnToolChange.AddListener(this.Refresh);
         Refresh();
+        base.Start();
     }
 
     void Refresh()

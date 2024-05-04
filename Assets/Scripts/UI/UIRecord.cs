@@ -12,6 +12,7 @@ public class UIRecord : UIBase
     {
         RecordManager.Instance.OnRecordChange.AddListener(Refresh);
         Refresh();
+        base.Start();
     }
 
     public void Refresh()

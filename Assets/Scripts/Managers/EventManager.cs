@@ -125,4 +125,6 @@ public class EventManager : Singleton<EventManager>
     {
         ChapterManager.Instance.AssignNewTask();
     }
+
+
 }

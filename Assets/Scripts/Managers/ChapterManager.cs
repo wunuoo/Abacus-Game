@@ -159,4 +159,7 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         TaskManager.Instance.StartNewTask(currentChapter.tasks[taskIndex]);
         taskIndex++;
     }
+
+
+
 }

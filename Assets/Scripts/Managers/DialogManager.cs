@@ -40,7 +40,8 @@ public class DialogManager : MonoSingleton<DialogManager>
         nodeIndex++;
 
         speaking = true;
-        DisableAllColliders(speaking);
+        SceneManager.Instance.DisableAllColliders(speaking, this.gameObject);
+
     }
 
     //当用户点击最后一个下一句按钮后，触发这个函数
@@ -48,7 +49,7 @@ public class DialogManager : MonoSingleton<DialogManager>
     {
         nodeIndex = 0;
         speaking = false;
-        DisableAllColliders(speaking);
+        SceneManager.Instance.DisableAllColliders(speaking, this.gameObject);
         EventManager.Instance.TriggerEvent(currentDialog.dialogEventIndex);
     }
 
@@ -67,36 +68,4 @@ public class DialogManager : MonoSingleton<DialogManager>
         nodeIndex = index;
         currentNode = currentDialog.dialogNodes[nodeIndex];
     }
-
-    // 禁用或启用所有其他对象上的Collider组件
-    private void DisableAllColliders(bool disable)
-    {
-        // 获取场景中所有的Collider组件
-        Collider[] colliders = FindObjectsOfType<Collider>();
-        Collider2D[] collider2ds = FindObjectsOfType<Collider2D>();
-
-        // 循环遍历所有Collider组件
-        foreach (Collider collider in colliders)
-        {
-            // 排除UI对象自身的Collider组件
-            if (collider.gameObject != gameObject)
-            {
-                // 设置Collider组件的是否启用状态
-                collider.enabled = !disable;
-            }
-        }
-
-        // 循环遍历所有Collider2D组件
-        foreach (Collider2D collider in collider2ds)
-        {
-            // 排除UI对象自身的Collider组件
-            if (collider.gameObject != gameObject)
-            {
-                // 设置Collider组件的是否启用状态
-                collider.enabled = !disable;
-            }
-        }
-    }
-
-
 }

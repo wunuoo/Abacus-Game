@@ -16,6 +16,7 @@ public class UISetting : UIBase
         musicVolume.value = SoundManager.Instance.MusicVolume;
         //Debug.Log("addlistener");
         soundVolume.DragEnd.AddListener(this.OnSoundChangeEnd);
+        base.Start();
     }
 
     public void OnMusicVChange(float newValue)

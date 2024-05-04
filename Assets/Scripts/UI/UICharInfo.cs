@@ -30,6 +30,7 @@ public class UICharInfo : UIBase
         OnClickCharPic(charImages[0]);
 
         Refresh();
+        base.Start();
     }
 
     public void OnClickCharPic(UINPCElement elm)//点击NPC图片显示对应信息

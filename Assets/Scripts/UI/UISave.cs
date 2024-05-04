@@ -11,6 +11,7 @@ public class UISave : UIBase
     {
         SaveManager.Instance.OnGameSave += this.Refresh;
         Refresh();
+        base.Start();
     }
 
     void Refresh()

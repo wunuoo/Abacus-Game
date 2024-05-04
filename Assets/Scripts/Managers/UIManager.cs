@@ -5,16 +5,21 @@ using UnityEngine;
 
 public class UIBase : MonoBehaviour
 {
+    public void Start()
+    {
+        SceneManager.Instance.DisableAllColliders(true, this.gameObject);
+    }
 
     public virtual void OnClose()
     {
         SoundManager.Instance.PlaySound(GameConfig.ButtonSound);
-
+        SceneManager.Instance.DisableAllColliders(false, this.gameObject);
         Destroy(this.gameObject);
     }
 
     public void OnDestroy()
     {
+        
         //UIManager.Instance.DeleteInstance(this.gameObject);
     }
 }
