@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum GameStatus
@@ -45,10 +43,10 @@ public class EventManager : Singleton<EventManager>
                 this.GiveBooks();
                 break;
             case 6:
-                this.CheckMap();
+                this.ChangeSite();
                 break;
             case 7:
-                this.ChangeSite();
+                this.PlayNewCG();
                 break;
             case 8:
                 this.HideBG();
@@ -81,13 +79,13 @@ public class EventManager : Singleton<EventManager>
         ChapterManager.Instance.AssignNewDialog();
     }
 
-    private void ChangeSite()
+    private void PlayNewCG()
     {
         CGManager.Instance.ShowNextImage();
         ChapterManager.Instance.AssignNewDialog();
     }
 
-    private void CheckMap()
+    private void ChangeSite()
     {
         throw new NotImplementedException();
     }
@@ -101,12 +99,9 @@ public class EventManager : Singleton<EventManager>
 
     private void ShowSuanPan()
     {
-        UIMain.Instance.OnClickSuanPan();
-        UIMain.Instance.button_Back.onClick.AddListener(() => {
-            SceneManager.Instance.loadCompleted.AddListener(ChapterManager.Instance.AssignSceneChangeDialog);
+        SceneManager.Instance.loadCompleted.AddListener(ChapterManager.Instance.AssignSceneChangeDialog);
 
-            UIMain.Instance.button_Back.onClick.RemoveAllListeners();
-        });
+        UIMain.Instance.OnClickSuanPan();
     }
 
     private void ChapterFinish()

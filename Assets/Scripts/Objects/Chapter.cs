@@ -11,5 +11,9 @@ public class Chapter : ScriptableObject
 
     public Task[] tasks;
 
+    public Sprite envBG;
+
+    public bool inShop;
+
     //每当获取一个新对话或者任务，就会自动让指针+1，请注意
 }

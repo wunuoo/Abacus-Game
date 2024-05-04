@@ -12,9 +12,10 @@ public class UIMain : MonoSingleton<UIMain>
     public Button button_Back;
     public GameObject button_Cheat;
 
-    public UIEnvInfoBar[] info_bars;
 
     bool suanPanMode;
+
+    public UIGuide uiGuide;
 
     private void Update()
     {
@@ -24,21 +25,13 @@ public class UIMain : MonoSingleton<UIMain>
         }
     }
 
-    internal void OnClickEnvItem(int index)
+    public void OnClickGuide()
     {
-        for (int i = 0; i < info_bars.Length; i++)
-        {
-            UIEnvInfoBar ui = info_bars[i];
-            if (i == index)
-            {
-                ui.showed = !ui.showed;
-            }
-            else ui.showed = false;
-            
-            ui.anim.SetBool("Show", ui.showed);
-        }
-        
+        uiGuide.showed = !uiGuide.showed;
+        uiGuide.gameObject.SetActive(uiGuide.showed);
     }
+
+
 
     protected override void OnStart()
     {

@@ -20,3 +20,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1ff5620576f5864caefdfa581c152b1, type: 2}
   tasks:
   - {fileID: 11400000, guid: 56555375952884c4fa6a1547c099d4c0, type: 2}
+  envBG: {fileID: 21300000, guid: cc8a029f8912be34faafeed947baa4ca, type: 3}
+  inShop: 1

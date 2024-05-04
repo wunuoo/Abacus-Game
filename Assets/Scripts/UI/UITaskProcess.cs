@@ -18,8 +18,6 @@ public class UITaskProcess : MonoBehaviour
 
     bool hintShowed;
 
-    public TextMeshProUGUI taskReport;
-
     void Start()
     {
         RectTransform rectTransform = taskProcessSlider.GetComponent<RectTransform>();
@@ -27,7 +25,7 @@ public class UITaskProcess : MonoBehaviour
         width = rectTransform.sizeDelta.x;
         Refresh();
 
-        TaskManager.Instance.NewTaskSet += this.OnNewTask;
+        TaskManager.Instance.NewTaskSet.AddListener(this.OnNewTask);
         TaskManager.Instance.TaskStatusChange.AddListener(this.Refresh);
     }
 
@@ -44,7 +42,6 @@ public class UITaskProcess : MonoBehaviour
         }
         else
         {
-            taskReport.text = "нч";
             foreach (var pointer in pointers)
             {
                 Destroy(pointer.gameObject);
@@ -59,11 +56,11 @@ public class UITaskProcess : MonoBehaviour
 
     private void OnDestroy()
     {
-        TaskManager.Instance.NewTaskSet -= this.OnNewTask;
+        TaskManager.Instance.NewTaskSet.RemoveListener(this.OnNewTask);
         TaskManager.Instance.TaskStatusChange.RemoveListener(this.Refresh);
     }
 
-    private void OnNewTask(object sender, Task task)
+    private void OnNewTask()
     {
         Refresh();
     }
@@ -88,8 +85,6 @@ public class UITaskProcess : MonoBehaviour
 
             go.SetActive(true);
         }
-
-        taskReport.text = task.report;
     }
 
 

@@ -35,3 +35,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb1934ee40c22544fbe74eb602f65ba9, type: 2}
   - {fileID: 11400000, guid: 4dc3e058986bfd849b9f1569a14b14a0, type: 2}
   - {fileID: 11400000, guid: f1801f8623ef70f4b8c8f771048d2c42, type: 2}
+  envBG: {fileID: 21300000, guid: cc8a029f8912be34faafeed947baa4ca, type: 3}
+  inShop: 1

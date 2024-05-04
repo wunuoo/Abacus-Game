@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e0ddaf1ff4f7b429ed6c0536bb55b8, type: 3}
   m_Name: "\u7AE0\u82822"
   m_EditorClassIdentifier: 
+  chapterName: 
   dialogs:
   - {fileID: 11400000, guid: 02580eecc042536498f398c31134422b, type: 2}
   - {fileID: 11400000, guid: 8bea92982ceddd646afd9a6abb14f401, type: 2}
@@ -19,3 +20,5 @@ MonoBehaviour:
   tasks:
   - {fileID: 11400000, guid: ec9ca7491db605046922ba4999e83d85, type: 2}
   - {fileID: 11400000, guid: bdffbc45d2ff0eb4f8063cacb9bc5eb4, type: 2}
+  envBG: {fileID: 21300000, guid: cc8a029f8912be34faafeed947baa4ca, type: 3}
+  inShop: 1

@@ -14,6 +14,7 @@ public class Save
     public int dialogNodeIndex;
     public int taskIndex;
     public int pptIndex;
+    public bool showingPPT;
 
     public int recordIndex;
     public Dictionary<int, bool> toolGottenTable;//保存目前已经得到的物品
@@ -52,6 +53,7 @@ public class SaveManager : Singleton<SaveManager>
         save.taskIndex = ChapterManager.Instance.taskIndex;
         save.recordIndex = RecordManager.Instance.recordsUnlockIndex;
         save.pptIndex = CGManager.Instance.pptIndex;
+        save.showingPPT = CGManager.Instance.showingPPT;
         save.toolGottenTable = ToolManager.Instance.toolGotten;
         save.npcMeetTable = CharInfoManager.Instance.npcMeet;
 

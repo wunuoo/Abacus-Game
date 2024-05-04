@@ -20,14 +20,11 @@ public class CGManager : MonoSingleton<CGManager>
     public GameObject PPTDisplay;
     public Sprite[] pics;
     public int pptIndex = 0;
+    public bool showingPPT;
 
     public PlayableAsset black_Timeline;
 
     public PlayableDirector director;
-
-    
-
-    public Chapter testchapter;
 
     public UnityEvent OnBlackMuskFaded = new UnityEvent();
 
@@ -55,26 +52,13 @@ public class CGManager : MonoSingleton<CGManager>
         //PlayChapterBegin(testchapter, 0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    internal void PlayBegin()
-    {
-        //beginCG.gameObject.SetActive(true);
-        //director.stopped += OnBeginAnimStop;
-        //director.Play();
-    }
-
     public void ShowNextImage()
     {
         
         PPTDisplay.SetActive(true);
         StartCoroutine(GameUtil.FadeIn(blackMusk, fadeSpeed, () =>
         {
-            
+            showingPPT = true;
             this.BGPic.sprite = pics[pptIndex];
             pptIndex++;
             this.BGPic.gameObject.SetActive(true);
@@ -87,10 +71,16 @@ public class CGManager : MonoSingleton<CGManager>
     {
         StartCoroutine(GameUtil.FadeIn(blackMusk, fadeSpeed, () =>
         {
+            showingPPT = false;
             this.BGPic.gameObject.SetActive(false);
             StartCoroutine(GameUtil.FadeOut(blackMusk, fadeSpeed, () => { PPTDisplay.SetActive(false); }));
         }));
         
         
+    }
+
+    internal void Refresh()
+    {
+        this.BGPic.gameObject.SetActive(showingPPT);
     }
 }

@@ -14,8 +14,8 @@ public enum TaskProceedType
 
 public class TaskManager : Singleton<TaskManager>
 {
-    public event EventHandler<Task> NewTaskSet;
     public UnityEvent TaskStatusChange = new UnityEvent();
+    public UnityEvent NewTaskSet = new UnityEvent();
 
     public Task currentTask;
     public int resultIndex;
@@ -41,6 +41,10 @@ public class TaskManager : Singleton<TaskManager>
         //Debug.Log("任务完成");
         EventManager.Instance.TriggerEvent(currentTask.eventIndex);
         currentTask = null;
+
+        //有待修改
+        if(!SceneManager.Instance.IsOnMain())
+            UIMain.Instance.OnClickBack();
     }
 
     public void StartNewTask(Task task)
@@ -48,7 +52,6 @@ public class TaskManager : Singleton<TaskManager>
         
         this.currentTask = task;
 
-        NewTaskSet?.Invoke(this, currentTask);
-
+        NewTaskSet?.Invoke();
     }
 }

@@ -34,7 +34,7 @@ public class UICharInfo : UIBase
 
     public void OnClickCharPic(UINPCElement elm)//点击NPC图片显示对应信息
     {
-        charName.text = elm.charInfo.name;
+        charName.text = "<rotate=90>" + elm.charInfo.name;
         charDescription.text = elm.charInfo.description;
 
         foreach (var ui in charImages)

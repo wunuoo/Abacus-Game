@@ -16,9 +16,9 @@ public class UIRecord : UIBase
 
     public void Refresh()
     {
-        for(int i = -1; i < RecordManager.Instance.recordsUnlockIndex; i++)
+        for(int i = -1; i < records.Length - 1; i++)
         {
-            records[i + 1].gameObject.SetActive(true);
+            records[i + 1].gameObject.SetActive(i < RecordManager.Instance.recordsUnlockIndex);
         }
     }
 }

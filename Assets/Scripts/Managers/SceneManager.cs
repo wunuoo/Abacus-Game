@@ -24,8 +24,11 @@ public class SceneManager : MonoSingleton<SceneManager>
 
     public bool IsOnTitle()
     {
-        //Debug.Log(UnityEngine.SceneManagement.SceneManager.GetActiveScene().ToString());
         return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Title";
+    }
+    public bool IsOnMain()
+    {
+        return UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Main";
     }
 
     public void BackToLastScene()

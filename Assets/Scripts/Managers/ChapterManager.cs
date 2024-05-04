@@ -20,7 +20,11 @@ public class ChapterManager : MonoSingleton<ChapterManager>
     public int chapterIndex = 0;
     public int dialogIndex = 0;
     public int taskIndex = 0;
-    
+
+    public SpriteRenderer envBG;//场景
+    public GameObject[] envItems;
+
+    public UnityEvent OnLoadFinish = new UnityEvent();
 
     // 这个函数是整个游戏的开始
     protected override void OnStart()
@@ -52,6 +56,14 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         });
         CGManager.Instance.PlayChapterBegin(currentChapter, chapterIndex);//开场对话
 
+        envBG.sprite = currentChapter.envBG;
+        if (!currentChapter.inShop)
+        {
+            foreach (var item in envItems)
+            {
+                item.SetActive(false);
+            }
+        }
     }
 
     public void StartBySave(Save save)
@@ -62,7 +74,10 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         RecordManager.Instance.recordsUnlockIndex = save.recordIndex;
         ToolManager.Instance.toolGotten = save.toolGottenTable;
         CharInfoManager.Instance.npcMeet = save.npcMeetTable;
+
         CGManager.Instance.pptIndex = save.pptIndex;
+        CGManager.Instance.showingPPT = save.showingPPT;
+        CGManager.Instance.Refresh();
 
         chapterIndex = save.chapterIndex;
         dialogIndex = save.dialogIndex;
@@ -70,6 +85,15 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         taskIndex = save.taskIndex;
 
         currentChapter = chapters[chapterIndex];
+        envBG.sprite = currentChapter.envBG;
+        if (!currentChapter.inShop)
+        {
+            foreach (var item in envItems)
+            {
+                item.SetActive(false);
+            }
+        }
+
         EventManager.Instance.gameStatus = save.gamestatus;
         switch (EventManager.Instance.gameStatus)
         {
@@ -90,6 +114,8 @@ public class ChapterManager : MonoSingleton<ChapterManager>
             default:
                 break;
         }
+
+        OnLoadFinish?.Invoke();
     }
 
     internal void OnGameEnd()
