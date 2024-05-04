@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: "\u80E1\u795A\u4EC1"
     ID: 2
     portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}
-    content: "\u5F88\u597D\uFF0C\u63A5\u4E0B\u6765\u6211\u4EEC\u6765\u5C1D\u8BD5\u51CF\u6CD5\u7684\u6280\u5DE7\u3002\r"
+    content: "\u5F88\u597D\uFF0C\u63A5\u4E0B\u6765\u662F\u51CF\u6CD5\u7684\u6280\u5DE7\u3002\r"
     toolID: 0
     npcID: 0
   - name: "\u9646\u8317"
@@ -28,7 +28,7 @@ MonoBehaviour:
   - name: "\u80E1\u795A\u4EC1"
     ID: 2
     portrait: {fileID: 21300000, guid: a88102bf5da86384a8eb7fff12c0d45e, type: 3}
-    content: "\u9996\u5148\u662F\u51CF\u6CD5\u7684\u9000\u4F4D...\r"
+    content: "\u90A3\u4E48\u8BB2\u5230\u51CF\u6CD5\u7684\u9000\u4F4D...\r"
     toolID: 0
     npcID: 0
   - name: "\u65C1\u767D"
