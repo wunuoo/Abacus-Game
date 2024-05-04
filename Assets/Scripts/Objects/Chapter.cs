@@ -15,5 +15,7 @@ public class Chapter : ScriptableObject
 
     public bool inShop;
 
+    public bool hasOpenCG;
+
     //每当获取一个新对话或者任务，就会自动让指针+1，请注意
 }

@@ -14,13 +14,14 @@ public class CharInfoManager : Singleton<CharInfoManager>
     {
         foreach (var kv in GameConfig.idToNPC_Map)
         {
-            if (kv.Key != 0)
+            if (kv.Key != 0 && kv.Key != 9)//0是旁白，9是官员。虽然写死不是很好，但是为了效率先这么做了
             {
                 npcMeet.Add(kv.Value.ID, false);
             }
 
         }
-        npcMeet[1] = true;
+        npcMeet[1] = true;//1是主角，10是主角父亲，开局已知
+        npcMeet[10] = true;
     }
 
     public void MeetNPC(int ID)

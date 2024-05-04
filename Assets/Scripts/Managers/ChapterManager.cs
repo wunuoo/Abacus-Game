@@ -52,6 +52,12 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         CGManager.Instance.OnBlackMuskFaded.AddListener(() => {
             AssignNewDialog();
         });
+        if (currentChapter.hasOpenCG)
+        {
+            CGManager.Instance.OnBlackMuskFaded.AddListener(() => {
+                CGManager.Instance.ShowNextImage();
+            });
+        }
         CGManager.Instance.PlayChapterBegin(currentChapter, chapterIndex);//开场对话
 
         OnNewChapterStart?.Invoke();
@@ -104,16 +110,13 @@ public class ChapterManager : MonoSingleton<ChapterManager>
 
     internal void OnGameEnd()
     {
+        StartCoroutine(ShowPics());
         IEnumerator ShowPics()
         {
             CGManager.Instance.ShowNextImage();
             yield return new WaitForSeconds(2f);
-            CGManager.Instance.ShowNextImage();
-            yield return new WaitForSeconds(2f);
             UIManager.Instance.Show<UIEnd>();
         }
-        StartCoroutine(ShowPics());
-
     }
 
 

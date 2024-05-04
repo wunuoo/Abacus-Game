@@ -31,11 +31,11 @@ public class UIGuide : MonoBehaviour
     {
         if(EventManager.Instance.gameStatus == GameStatus.OnTask)
         {
-            SetText(TaskManager.Instance.currentTask == null ? "无" : TaskManager.Instance.currentTask.report);
+            SetText(TaskManager.Instance.currentTask == null ? "无" : "请在算盘中拨出结果：" + TaskManager.Instance.currentTask.report);
         }
         else
         {
-            SetText("其它");
+            SetText("请继续对话");
         }
         
     }

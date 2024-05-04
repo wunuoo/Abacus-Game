@@ -19,3 +19,4 @@ MonoBehaviour:
   tasks: []
   envBG: {fileID: 21300000, guid: 5813b777d8e1ccd4092698341e886411, type: 3}
   inShop: 0
+  hasOpenCG: 1

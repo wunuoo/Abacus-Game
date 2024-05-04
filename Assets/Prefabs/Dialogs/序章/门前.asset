@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: "\u65C1\u767D"
     ID: 0
     portrait: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    content: "\u8336\u53F6\u8FD0\u8F93\u8DEF\u4E0A\uFF0C\u8FDC\u8FDC\u671B\u53BB\uFF0C\u4E00\u5EA7\u5BA2\u6808\u9690\u7EA6\u6D6E\u73B0\u5728\u8FDC\u5904\u3002"
+    content: "\u8336\u9A6C\u53E4\u9053\u4E0A\uFF0C\u8FDC\u8FDC\u671B\u53BB\uFF0C\u4E00\u5EA7\u5BA2\u6808\u9690\u7EA6\u6D6E\u73B0\u96FE\u4E2D\u3002"
     toolID: 0
     npcID: 0
   dialogEventIndex: 7

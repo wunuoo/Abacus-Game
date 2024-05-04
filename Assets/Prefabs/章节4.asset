@@ -18,5 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 711854fa061b6ae4dbe044d871b7906a, type: 2}
   tasks:
   - {fileID: 11400000, guid: ce9d36b356d3c9d498fd9040a8550bd9, type: 2}
-  envBG: {fileID: 21300000, guid: 832810b59945ab8408275fc12c0dd8e7, type: 3}
-  inShop: 0
+  envBG: {fileID: 21300000, guid: cc8a029f8912be34faafeed947baa4ca, type: 3}
+  inShop: 1
+  hasOpenCG: 0
