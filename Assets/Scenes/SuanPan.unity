@@ -1792,6 +1792,10 @@ PrefabInstance:
       value: UISuanPan
       objectReference: {fileID: 0}
     - target: {fileID: 5442073628414048784, guid: db87e3b77ae0e6d4d93a99c8bc151554, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442073628414048784, guid: db87e3b77ae0e6d4d93a99c8bc151554, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}

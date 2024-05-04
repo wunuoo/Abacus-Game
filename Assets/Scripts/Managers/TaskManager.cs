@@ -42,9 +42,7 @@ public class TaskManager : Singleton<TaskManager>
         EventManager.Instance.TriggerEvent(currentTask.eventIndex);
         currentTask = null;
 
-        //ÓÐ´ýÐÞ¸Ä
-        if(!SceneManager.Instance.IsOnMain())
-            UIMain.Instance.OnClickBack();
+
     }
 
     public void StartNewTask(Task task)

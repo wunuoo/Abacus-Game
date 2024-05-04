@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e0ddaf1ff4f7b429ed6c0536bb55b8, type: 3}
   m_Name: "\u5E8F\u7AE0"
   m_EditorClassIdentifier: 
-  chapterName: "\u5E8F\u7AE0\uFF1A\u6D4B\u8BD5"
+  chapterName: "\u5E8F\u7AE0"
   dialogs:
   - {fileID: 11400000, guid: 0772f82b276a2684db443d2b9c5e3e14, type: 2}
   - {fileID: 11400000, guid: 6914d2bb9c765f54090d97bd49269c1b, type: 2}
   - {fileID: 11400000, guid: fc97e710cdbf2c8459a5ac82096fd218, type: 2}
   - {fileID: 11400000, guid: b4618657d97818f41b9f8b102c86a74b, type: 2}
-  - {fileID: 11400000, guid: eba56eec15651e949a08e66212d07558, type: 2}
+  - {fileID: 11400000, guid: 5317a8a21d93c9c41aa61dce2c550685, type: 2}
   - {fileID: 11400000, guid: 7590a8e9666858443b9bd20e3100b4ca, type: 2}
   - {fileID: 11400000, guid: 2ee8e1db5ff392741b37e32e0deb3fc7, type: 2}
   - {fileID: 11400000, guid: 6de01738bcb00d54f82602c57cfa2da4, type: 2}

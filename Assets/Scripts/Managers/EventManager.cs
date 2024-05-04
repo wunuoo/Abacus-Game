@@ -108,6 +108,10 @@ public class EventManager : Singleton<EventManager>
     {
         RecordManager.Instance.GetRecord();
         ChapterManager.Instance.OnChapterFinished();
+
+        if (!SceneManager.Instance.IsOnMain())
+            UIMain.Instance.OnClickBack();
+
         this.OnChapterFinish?.Invoke();
     }
 
