@@ -1578,7 +1578,7 @@ MonoBehaviour:
   chapterIndex: {fileID: 6647387191951223460}
   emptySave: {fileID: 6749925254884135414}
   fullSave: {fileID: 4794730246652532301}
-  emptySaveButton: {fileID: 0}
+  emptySaveButton: {fileID: 6904491127396821972}
   fullSaveButton: {fileID: 8804349807463861274}
   fullLoadButton: {fileID: 1597232528066763805}
   slotIndex: 0
