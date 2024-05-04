@@ -498,7 +498,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1159,6 +1159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   global: 1
+  loadCompleted:
+    m_PersistentCalls:
+      m_Calls: []
   fadeSpeed: 3
   muskImage: {fileID: 781092602}
 --- !u!224 &781092600

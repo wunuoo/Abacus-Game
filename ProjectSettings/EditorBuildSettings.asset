@@ -13,8 +13,8 @@ EditorBuildSettings:
     guid: 6a5f8408f7c6bfa40bad9aa7599e7a8f
   - enabled: 1
     path: Assets/Scenes/SuanPan.unity
-    guid: 1ac9605fc9267ed4c9bdfb9d04001b41
-  - enabled: 1
+    guid: c727710b14fdd064d91f2e4f6239618a
+  - enabled: 0
     path: Assets/Scenes/Save.unity
     guid: a7e5cfe9a8725ec4c93574e764136e64
   m_configObjects: {}

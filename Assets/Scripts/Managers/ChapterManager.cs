@@ -24,6 +24,8 @@ public class ChapterManager : MonoSingleton<ChapterManager>
     public UnityEvent OnLoadFinish = new UnityEvent();
     public UnityEvent OnNewChapterStart = new UnityEvent();
 
+    public Dictionary<int, bool> envItemShining = new Dictionary<int, bool> { { 0, true }, { 1, true }, { 2, true } };
+
     // 这个函数是整个游戏的开始
     protected override void OnStart()
     {
