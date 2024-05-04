@@ -98,4 +98,10 @@ public class UITaskProcess : MonoBehaviour
         }
 
     }
+
+    public void OnClickClear()
+    {
+        UIMain.Instance.OnClickSuanPan();
+
+    }
 }

@@ -1537,7 +1537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.07, y: -0.9}
+  m_AnchoredPosition: {x: 0.49, y: -0.62}
   m_SizeDelta: {x: 11.82, y: 6.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1842922655
@@ -1581,7 +1581,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 76988b5956794684ebc61802f596a10e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 74ae0465783de9545884ab7c46679b33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1791,6 +1791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UISuanPan
       objectReference: {fileID: 0}
+    - target: {fileID: 5195142184797985738, guid: db87e3b77ae0e6d4d93a99c8bc151554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5442073628414048784, guid: db87e3b77ae0e6d4d93a99c8bc151554, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1877,6 +1881,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8175844614196523198, guid: db87e3b77ae0e6d4d93a99c8bc151554, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523608666852715237, guid: db87e3b77ae0e6d4d93a99c8bc151554, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

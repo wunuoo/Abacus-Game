@@ -27,13 +27,13 @@ MonoBehaviour:
     npcID: 0
   - name: "\u8859\u95E8"
     ID: 9
-    portrait: {fileID: 21300000, guid: 139c384e6f5dc6b4ea9cb58e75c057e4, type: 3}
+    portrait: {fileID: 21300000, guid: 4f0972753059e2f4ba44f218d6a32aee, type: 3}
     content: "\u6C88\u783A\uFF01\u4F60\u83AB\u518D\u8FA9\uFF01\u592A\u7956\u5728\u4F4D\u65F6\uFF0C\u8D2A\u58A8\u516D\u5341\u4E24\u4EE5\u4E0A\u7684\u5B98\u540F\uFF0C\u4E00\u5F8B\u65A9\u9996\uFF01\u6D2A\u6B66\u4E09\u5341\u5E74\uFF0C\u9A78\u9A6C\u6B27\u9633\u4F26\u8D70\u79C1\u8336\u53F6\u88AB\u8D50\u6B7B\u3002\u4F60\u4E24\u7F6A\u5E76\u72AF\uFF0C\u751A\u81F3\u8BEC\u544A\u4ED6\u4EBA\uFF0C\u7F6A\u5927\u6076\u6781\uFF01\r"
     toolID: 0
     npcID: 9
   - name: "\u8859\u95E8"
     ID: 9
-    portrait: {fileID: 21300000, guid: 139c384e6f5dc6b4ea9cb58e75c057e4, type: 3}
+    portrait: {fileID: 21300000, guid: 4f0972753059e2f4ba44f218d6a32aee, type: 3}
     content: "\u9646\u957F\u98CE\u4ECA\u65E5\u8D77\u5F97\u65E0\u7F6A\u91CA\u653E\u3002\u6765\u4EBA\uFF0C\u628A\u6C88\u783A\u7ED9\u62BC\u4E0B\u53BB\uFF01\r"
     toolID: 0
     npcID: 0
