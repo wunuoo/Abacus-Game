@@ -2384,7 +2384,7 @@ SpriteRenderer:
   m_Size: {x: 7.06, y: 3.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &996167480
@@ -3432,6 +3432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1447744927}
   - component: {fileID: 1447744928}
+  - component: {fileID: 1447744929}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -3506,6 +3507,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1447744929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447744926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d895317a2fa1d43920d77576de19dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  envBG: {fileID: 1447744928}
+  infoBar: {fileID: 251926223}
+  envItems:
+  - {fileID: 2045569352}
+  - {fileID: 1496513159}
 --- !u!1 &1452638939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3587,7 +3605,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1454260457
@@ -4271,13 +4289,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9db7454b5ae463541854ab0c7b484ddd, type: 2}
   - {fileID: 11400000, guid: 4069bfefeed1e0a4589b072cf13a3e97, type: 2}
   - {fileID: 11400000, guid: 945d36a234973af4da5d480dd9c1e796, type: 2}
+  currentChapter: {fileID: 0}
   chapterIndex: 0
   dialogIndex: 0
   taskIndex: 0
-  envBG: {fileID: 1447744928}
-  envItems:
-  - {fileID: 2045569352}
-  - {fileID: 1496513159}
   OnLoadFinish:
     m_PersistentCalls:
       m_Calls: []
@@ -4989,7 +5004,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1842922653
@@ -5073,7 +5088,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1868121974
@@ -5638,6 +5653,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4750945382815679259, guid: 7abb0f5ab58a3104dba964f39b53f819, type: 3}
+      propertyPath: m_text
+      value: "\u201C\u767E\u59D3\u559D\u7684\u9152,\u5C3D\u7BA1\u4F7F\u4EBA\u9676\u9189,\u4F46\u4E0D\u5F88\u731B\u70C8,\u4E5F\u4E0D\u6301\u4E45\u3002\u2026\u2026\u9152\u7684\u989C\u8272\u60A6\u76EE,\u95FB\u8D77\u6765\u4E0D\u9519,\u5473\u9053\u4E5F\u597D\u201D
+        \n     \u2014\u2014\u66FE\u5FB7\u662D\u300A\u5927\u4E2D\u56FD\u5FD7\u300B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671758675873635859, guid: 7abb0f5ab58a3104dba964f39b53f819, type: 3}
+      propertyPath: m_text
+      value: "\u9EC4\u9152"
+      objectReference: {fileID: 0}
     - target: {fileID: 8743175469158494921, guid: 7abb0f5ab58a3104dba964f39b53f819, type: 3}
       propertyPath: m_Name
       value: DrinkInfo
@@ -5868,7 +5892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2111173139
 RectTransform:
   m_ObjectHideFlags: 0

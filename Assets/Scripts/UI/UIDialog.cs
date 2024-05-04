@@ -25,6 +25,15 @@ public class UIDialog : UIBase
     float textSpeed;
     bool isSettingContent;
 
+    private void Start()
+    {
+        ChapterManager.Instance.OnNewChapterStart.AddListener(ResetPortrait);
+    }
+    private new void OnDestroy()
+    {
+        ChapterManager.Instance.OnNewChapterStart.RemoveListener(ResetPortrait);
+    }
+
     public void StartDialog(Dialog dialog)
     {
         textSpeed = defaultTextSpeed;
@@ -36,7 +45,16 @@ public class UIDialog : UIBase
         PlayCurrentNode();
     }
 
-
+    //新的对话重置肖像
+    private void ResetPortrait()
+    {
+        lastSpeaker = null;
+        img_replacing_index = 0;
+        foreach (var item in portraits)
+        {
+            item.gameObject.SetActive(false);
+        }
+    }
 
 
     void Replace(Sprite pic)

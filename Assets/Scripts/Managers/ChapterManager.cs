@@ -14,17 +14,15 @@ public class ChapterManager : MonoSingleton<ChapterManager>
     public bool canGoNextChapter = false;
 
     public List<Chapter> chapters = new List<Chapter>();
-    Chapter currentChapter;
+    public Chapter currentChapter;
 
     //这些指针放在这里而非Chapter中，这是因为ScriptableObj虽然在部署后不会保存值，但在编辑器会，重新调非常麻烦
     public int chapterIndex = 0;
     public int dialogIndex = 0;
     public int taskIndex = 0;
 
-    public SpriteRenderer envBG;//场景
-    public GameObject[] envItems;
-
     public UnityEvent OnLoadFinish = new UnityEvent();
+    public UnityEvent OnNewChapterStart = new UnityEvent();
 
     // 这个函数是整个游戏的开始
     protected override void OnStart()
@@ -56,14 +54,7 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         });
         CGManager.Instance.PlayChapterBegin(currentChapter, chapterIndex);//开场对话
 
-        envBG.sprite = currentChapter.envBG;
-        if (!currentChapter.inShop)
-        {
-            foreach (var item in envItems)
-            {
-                item.SetActive(false);
-            }
-        }
+        OnNewChapterStart?.Invoke();
     }
 
     public void StartBySave(Save save)
@@ -85,14 +76,7 @@ public class ChapterManager : MonoSingleton<ChapterManager>
         taskIndex = save.taskIndex;
 
         currentChapter = chapters[chapterIndex];
-        envBG.sprite = currentChapter.envBG;
-        if (!currentChapter.inShop)
-        {
-            foreach (var item in envItems)
-            {
-                item.SetActive(false);
-            }
-        }
+
 
         EventManager.Instance.gameStatus = save.gamestatus;
         switch (EventManager.Instance.gameStatus)
